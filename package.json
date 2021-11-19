@@ -4,7 +4,8 @@
   "description": "The new compiler for the InCode Programming Language",
   "main": "build/index.js",
   "scripts": {
-    "test": "tsc && npm start"
+    "build": "tsc",
+    "test:german": "yarn build && node bin/cli.js --file ../examples/de/testing.icx --language german"
   },
   "repository": {
     "type": "git",
@@ -20,5 +21,8 @@
   "bugs": {
     "url": "https://github.com/InCodeDevs/Compiler/issues"
   },
-  "homepage": "https://github.com/InCodeDevs/Compiler#readme"
+  "homepage": "https://github.com/InCodeDevs/Compiler#readme",
+  "dependencies": {
+    "yarn": "^1.22.17"
+  }
 }
