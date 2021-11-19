@@ -5,3 +5,4 @@
 
 import * as InCode from "./InCode";
 
+InCode.Compiler.x();
