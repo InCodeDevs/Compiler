@@ -4,6 +4,17 @@
  */
 
 import Compiler from "./modules/Compiler";
-import { Languages } from "./modules/Languages";
+import AbstractSyntaxTreeGenerator from "./modules/AbstractSyntaxTreeGenerator";
 
-const compiler: Compiler = new Compiler(Languages.GERMAN);
+export = { Compiler, AbstractSyntaxTreeGenerator };
+
+// !! TESTING !!
+// !! REMOVE BEFORE PRODUCTION DEPLOYMENT !!
+
+new AbstractSyntaxTreeGenerator(
+    `
+Wenn x gleich 1 ist
+	Setze den Wert von x auf "HELLO WORLD"
+Gib "Hallo Welt" in der Konsole aus.
+  `
+  ).finalize()
