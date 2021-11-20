@@ -1,17 +1,18 @@
 {
-    "compilerOptions": {
-        "module": "CommonJS",
-        "target": "ESNext",
-        "moduleResolution": "Node",
-        "sourceMap": true,
-        "rootDir": "src",
-        "outDir": "dist",
-        "allowJs": true,
-        "declaration": true
-    },
-    "exclude": [
-        "node_modules",
-        "dist",
-        "bin"
-    ]
+  "compilerOptions": {
+    "module": "commonjs",
+    "target": "ESNext",
+    "sourceMap": true,
+    "rootDir": "src",
+    "outDir": "dist",
+    "allowJs": true,
+    "declaration": true,
+    "esModuleInterop": true,
+    "resolveJsonModule": true
+  },
+  "exclude": [
+    "node_modules",
+    "dist",
+    "bin"
+  ]
 }

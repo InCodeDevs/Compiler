@@ -5,6 +5,7 @@
   "main": "build/index.js",
   "scripts": {
     "build": "tsc",
+    "test": "yarn build && node dist/index.js",
     "test:german": "yarn build && node bin/cli.js --file ../examples/de/testing.icx --language german"
   },
   "repository": {

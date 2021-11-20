@@ -10,4 +10,3 @@ program
     .option("-c, --comments", "Comments the final JavaScript Code.", false);
 
 program.parse(process.argv);
-
