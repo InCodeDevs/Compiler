@@ -4,5 +4,5 @@
  */
 
 export interface JSONObject {
-    [key: string]: any
+  [key: string]: any;
 }

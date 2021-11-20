@@ -4,6 +4,6 @@
  */
 
 import Compiler from "./modules/Compiler";
-import {Languages} from "./modules/Languages";
+import { Languages } from "./modules/Languages";
 
 const compiler: Compiler = new Compiler(Languages.GERMAN);
