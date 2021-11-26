@@ -60,14 +60,14 @@ export default class AST extends InCodeTest {
 
           if (res_digest === resultContent) {
             console.log(
-              chalk.bgGreenBright.black("PASSED") +
+              chalk.bgGreenBright.black(" PASSED ") +
                 "\t" +
                 chalk.gray("resources/test/ast/") +
                 file
             );
           } else {
             console.log(
-              chalk.bgRed.black("FAILED") +
+              chalk.bgRed.black(" FAILED ") +
                 "\t" +
                 chalk.gray("resources/test/ast/") +
                 file
@@ -78,7 +78,7 @@ export default class AST extends InCodeTest {
           }
         } else {
           console.log(
-            chalk.bgRed.black("FAILED") +
+            chalk.bgRed.black(" FAILED ") +
               "\t" +
               chalk.gray("resources/test/ast/") +
               file
