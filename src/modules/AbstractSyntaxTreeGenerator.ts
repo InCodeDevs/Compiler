@@ -3,6 +3,7 @@
  * @copyright (c) 2018-2021 Ben Siebert. All rights reserved.
  */
 import { JSONObject } from "../types/JSONObject";
+import PreCompiler from "./PreCompiler";
 
 export default class AbstractSyntaxTreeGenerator {
   private input: string;
@@ -12,22 +13,10 @@ export default class AbstractSyntaxTreeGenerator {
   private ast: JSONObject[];
 
   constructor(input: string, spacesAsIntends: number = 2) {
-    this.input = input;
+    this.input = new PreCompiler(input).finalize();
     this.lines = this.input.split("\n");
     this.spacesAsIntends = spacesAsIntends;
     this.ast = [];
-  }
-
-  private removeComments() {
-    let lines = [];
-    this.lines.forEach((line) => {
-      let tempLine = line;
-      tempLine = tempLine.replace(/\t/g, "");
-      if (!tempLine.startsWith("//")) {
-        lines.push(line);
-      }
-    });
-    this.lines = lines;
   }
 
   private splitWords() {
@@ -135,7 +124,6 @@ export default class AbstractSyntaxTreeGenerator {
   }
 
   public finalize(): JSONObject {
-    this.removeComments();
     this.splitWords();
     this.generateAST();
 

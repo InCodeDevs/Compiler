@@ -6,12 +6,14 @@
 import AST from "./ast";
 import { InCodeTest } from "./InCodeTest";
 import chalk from "chalk";
+import All from "./all";
 
 let startTime, endTime;
 
 startTime = new Date();
 
 new AST().runTest();
+new All().runTest();
 
 endTime = new Date();
 let timeDiff = endTime - startTime;

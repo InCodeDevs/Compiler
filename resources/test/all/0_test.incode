@@ -1,0 +1,7 @@
+Gib "Hallo Welt" in der Konsole aus
+Setze x auf 2
+Wenn x gleich 2 ist
+	Gib "Test" in der Dialogbox aus
+	Setze x auf 3
+	Wenn x gleich 3 ist
+		Gib "Hallo Welt" in der Dialogbox aus

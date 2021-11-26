@@ -3,17 +3,16 @@
  * @copyright (c) 2018-2021 Ben Siebert. All rights reserved.
  */
 
+import { InCodeTest } from "./InCodeTest";
 import * as fs from "fs";
 import * as path from "path";
-import AbstractSyntaxTreeGenerator from "../modules/AbstractSyntaxTreeGenerator";
-import { InCodeTest } from "./InCodeTest";
-import chalk from "chalk";
+import Compiler from "../modules/Compiler";
 
-export default class AST extends InCodeTest {
+export default class All extends InCodeTest {
   runTest() {
     console.log();
     fs.readdirSync(
-      path.join(__dirname, "..", "..", "resources", "test", "ast")
+      path.join(__dirname, "..", "..", "resources", "test", "all")
     ).forEach((file) => {
       if (file.endsWith(".incode")) {
         if (
@@ -24,7 +23,7 @@ export default class AST extends InCodeTest {
               "..",
               "resources",
               "test",
-              "ast",
+              "all",
               file + ".hash"
             )
           )
@@ -37,22 +36,20 @@ export default class AST extends InCodeTest {
                 "..",
                 "resources",
                 "test",
-                "ast",
+                "all",
                 file + ".hash"
               )
             )
             .toString();
           const content = fs
             .readFileSync(
-              path.join(__dirname, "..", "..", "resources", "test", "ast", file)
+              path.join(__dirname, "..", "..", "resources", "test", "all", file)
             )
             .toString();
 
-          const result = JSON.stringify(
-            new AbstractSyntaxTreeGenerator(content, 4).finalize()
-          );
+          const result = JSON.stringify(new Compiler(content).finalize());
 
-          this.check(result, resultContent, "/resources/test/ast", file);
+          this.check(result, resultContent, "/resources/test/all", file);
         } else {
           this.check(
             "No hash File was found.",
