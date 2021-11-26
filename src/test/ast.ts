@@ -12,6 +12,7 @@ import * as crypto from "crypto";
 
 export default class AST extends InCodeTest {
   runTest() {
+    console.log();
     fs.readdirSync(
       path.join(__dirname, "..", "..", "resources", "test", "ast")
     ).forEach((file) => {

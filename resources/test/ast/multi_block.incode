@@ -1,0 +1,6 @@
+Wenn x gleich 2 ist
+	Gib "Hallo Welt" in der Konsole aus
+	Wiederhole solange x 2 ist
+		Setze x auf 1
+		Gib "Hello" in der Konsole aus
+Gib "123" in der Konsole aus
