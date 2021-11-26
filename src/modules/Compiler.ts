@@ -5,6 +5,7 @@
 import { JSONObject } from "../types/JSONObject";
 import AbstractSyntaxTreeGenerator from "./AbstractSyntaxTreeGenerator";
 import PreCompiler from "./PreCompiler";
+import Dictionary from "./Dictionary";
 
 export default class Compiler {
   private code: string;
@@ -13,6 +14,7 @@ export default class Compiler {
 
   constructor(code: string) {
     this.code = code;
+    Dictionary.loadDictionary();
   }
 
   finalize(): string {
@@ -24,6 +26,7 @@ export default class Compiler {
       code: this.code,
       ast: this.abstractSyntaxTree,
     });
+
     return this.return;
   }
 }

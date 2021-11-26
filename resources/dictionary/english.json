@@ -1,0 +1,11 @@
+{
+  "commands": {
+    "create": "create",
+    "set": "set",
+    "if": "if",
+    "else": "else",
+    "repeat": "repeat",
+    "print": "print",
+    "ask": "ask"
+  }
+}

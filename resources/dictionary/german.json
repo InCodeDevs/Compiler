@@ -1,0 +1,11 @@
+{
+  "commands": {
+    "create": "erstelle",
+    "set": "setze",
+    "if": "wenn",
+    "else": "sonst",
+    "repeat": "wiederhole",
+    "print": "gib",
+    "ask": "frage"
+  }
+}

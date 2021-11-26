@@ -4,7 +4,7 @@
  */
 import chalk from "chalk";
 
-export class AbstractSyntaxTreeGenerationError extends Error {
+export default class AbstractSyntaxTreeGenerationError extends Error {
   constructor(msg: string) {
     super();
     this.message = chalk.red("\n\n" + msg + "\n\n");
