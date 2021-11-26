@@ -8,6 +8,7 @@ import * as path from "path";
 import AbstractSyntaxTreeGenerator from "../modules/AbstractSyntaxTreeGenerator";
 import { InCodeTest } from "./InCodeTest";
 import chalk from "chalk";
+import * as crypto from "crypto";
 
 export default class AST extends InCodeTest {
   runTest() {
@@ -24,7 +25,7 @@ export default class AST extends InCodeTest {
               "resources",
               "test",
               "ast",
-              file + ".result"
+              file + ".hash"
             )
           )
         ) {
@@ -37,7 +38,7 @@ export default class AST extends InCodeTest {
                 "resources",
                 "test",
                 "ast",
-                file + ".result"
+                file + ".hash"
               )
             )
             .toString();
@@ -51,7 +52,12 @@ export default class AST extends InCodeTest {
             new AbstractSyntaxTreeGenerator(content, 4).finalize()
           );
 
-          if (result === resultContent) {
+          const res_md5 = crypto.createHash("md5");
+
+          res_md5.update(result);
+          const res_digest = res_md5.digest("hex");
+
+          if (res_digest === resultContent) {
             console.log(
               chalk.bgGreenBright.black("PASSED") +
                 "\t" +
@@ -60,12 +66,14 @@ export default class AST extends InCodeTest {
             );
           } else {
             console.log(
-              chalk.bgRedBright.white("FAILED") +
+              chalk.bgRed.black("FAILED") +
                 "\t" +
                 chalk.gray("resources/test/ast/") +
                 file
             );
-            console.log(result);
+            console.log("\nNeeded: " + resultContent);
+            console.log("Output Hash: " + res_digest);
+            console.log("Output: " + result + "\n");
           }
         } else {
           console.log(
@@ -75,6 +83,7 @@ export default class AST extends InCodeTest {
               file
           );
         }
+        console.log();
       }
     });
   }

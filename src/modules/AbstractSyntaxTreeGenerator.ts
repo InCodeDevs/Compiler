@@ -142,7 +142,7 @@ export default class AbstractSyntaxTreeGenerator {
     return this.ast;
   }
 
-  private helperGenerateNestedASTObject(object: JSONObject): JSONObject {
+  protected helperGenerateNestedASTObject(object: JSONObject): JSONObject {
     object.innerObjects = [];
     return object;
   }

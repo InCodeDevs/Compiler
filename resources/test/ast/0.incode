@@ -1,8 +1,0 @@
-Wenn x gleich 1 ist
-	Gib "Hallo Welt" in der Konsole aus
-	Wiederhole solage x 1 ist
-		Gib "Hallo WElt 2" in der Dialogbox aus
-		Wiederhole 2 mal
-			Gib 123 aus
-Setze x auf 2
-Gib 2 aus
