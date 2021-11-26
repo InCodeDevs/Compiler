@@ -23,5 +23,10 @@ console.log(
     "/" +
     InCodeTest.TOTAL_TESTS
 );
+if (InCodeTest.FAILED_TESTS === 0) {
+  console.log(chalk.green("All tests passed.\n"));
+} else {
+  console.log(chalk.red("Not all tests passed.\n"));
+}
 console.log("Time elapsed: " + timeDiff + " seconds");
 console.log();
