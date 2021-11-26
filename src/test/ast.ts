@@ -8,7 +8,6 @@ import * as path from "path";
 import AbstractSyntaxTreeGenerator from "../modules/AbstractSyntaxTreeGenerator";
 import { InCodeTest } from "./InCodeTest";
 import chalk from "chalk";
-import * as crypto from "crypto";
 
 export default class AST extends InCodeTest {
   runTest() {
@@ -53,38 +52,43 @@ export default class AST extends InCodeTest {
             new AbstractSyntaxTreeGenerator(content, 4).finalize()
           );
 
-          const res_md5 = crypto.createHash("md5");
+          this.check(result, resultContent, "resources/test/ast", file);
 
-          res_md5.update(result);
-          const res_digest = res_md5.digest("hex");
+          /*
+                    const res_md5 = crypto.createHash("md5");
 
-          if (res_digest === resultContent) {
-            console.log(
-              chalk.bgGreenBright.black(" PASSED ") +
-                "\t" +
-                chalk.gray("resources/test/ast/") +
-                file
-            );
-          } else {
-            console.log(
-              chalk.bgRed.black(" FAILED ") +
-                "\t" +
-                chalk.gray("resources/test/ast/") +
-                file
-            );
-            console.log("\nNeeded: " + resultContent);
-            console.log("Output Hash: " + res_digest);
-            console.log("Output: " + result + "\n");
-          }
-        } else {
-          console.log(
-            chalk.bgRed.black(" FAILED ") +
-              "\t" +
-              chalk.gray("resources/test/ast/") +
-              file
-          );
+                    res_md5.update(result);
+                    const res_digest = res_md5.digest("hex");
+
+                    if (res_digest === resultContent) {
+                      console.log(
+                        chalk.bgGreenBright.black(" PASSED ") +
+                          "\t" +
+                          chalk.gray("resources/test/ast/") +
+                          file
+                      );
+                    } else {
+                      console.log(
+                        chalk.bgRed.black(" FAILED ") +
+                          "\t" +
+                          chalk.gray("resources/test/ast/") +
+                          file
+                      );
+                      console.log("\nNeeded: " + resultContent);
+                      console.log("Output Hash: " + res_digest);
+                      console.log("Output: " + result + "\n");
+                    }
+                  } else {
+                    console.log(
+                      chalk.bgRed.black(" FAILED ") +
+                        "\t" +
+                        chalk.gray("resources/test/ast/") +
+                        file
+                    );
+                  }
+                  console.log();
+                }*/
         }
-        console.log();
       }
     });
   }
