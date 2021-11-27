@@ -7,6 +7,7 @@ import AST from "./ast";
 import { InCodeTest } from "./InCodeTest";
 import chalk from "chalk";
 import All from "./all";
+import Language from "./language";
 
 let startTime, endTime;
 
@@ -14,6 +15,7 @@ startTime = new Date();
 
 new AST().runTest();
 new All().runTest();
+new Language().runTest();
 
 endTime = new Date();
 let timeDiff = endTime - startTime;
