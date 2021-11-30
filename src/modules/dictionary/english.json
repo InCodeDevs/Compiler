@@ -6,6 +6,7 @@
     "else": "else",
     "repeat": "repeat",
     "print": "print",
-    "ask": "ask"
+    "ask": "ask",
+    "import": "import"
   }
 }

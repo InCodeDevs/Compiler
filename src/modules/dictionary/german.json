@@ -6,6 +6,7 @@
     "else": "sonst",
     "repeat": "wiederhole",
     "print": "gib",
-    "ask": "frage"
+    "ask": "frage",
+    "import": "importiere"
   }
 }

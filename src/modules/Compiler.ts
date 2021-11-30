@@ -6,6 +6,7 @@ import { JSONObject } from "../types/JSONObject";
 import AbstractSyntaxTreeGenerator from "./AbstractSyntaxTreeGenerator";
 import PreCompiler from "./PreCompiler";
 import Dictionary from "./Dictionary";
+import LanguageCompiler from "./LanguageCompiler";
 
 export default class Compiler {
   private code: string;
@@ -22,10 +23,7 @@ export default class Compiler {
     this.abstractSyntaxTree = new AbstractSyntaxTreeGenerator(
       this.code
     ).finalize();
-    this.return = JSON.stringify({
-      code: this.code,
-      ast: this.abstractSyntaxTree,
-    });
+    this.return = new LanguageCompiler(this.abstractSyntaxTree).finalize();
 
     return this.return;
   }

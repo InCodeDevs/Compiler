@@ -1,0 +1,13 @@
+Print "Hallo Welt" to the Console
+Create x
+Set the value of x to 2
+If x is pressed call the method xPressed
+Create xPressed as Method
+    Print "Test" to the Console
+If x is equal to 2
+	Print "Test" to the Dialogbox
+	Set the value of x to 3
+	If x is equal to 3
+		Print "Hallo Welt" to the Console
+	Else if x is equal to 4
+	    Print "Hallo Welt1" to the Console

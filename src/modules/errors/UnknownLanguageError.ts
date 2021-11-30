@@ -4,8 +4,8 @@
  */
 import InCodeError from "./InCodeError";
 
-export default class AbstractSyntaxTreeGenerationError extends InCodeError {
+export default class UnknownLanguageError extends InCodeError {
   constructor(msg: string) {
-    super("AbstractSyntaxTreeGenerationError", msg);
+    super("UnknownLanguageError", msg);
   }
 }

@@ -1,0 +1,294 @@
+{
+  "creatable": {
+    "button": "button",
+    "paragraph": "p",
+    "text": "span",
+    "image": "img",
+    "heading": "h1",
+    "heading1": "h1",
+    "heading2": "h2",
+    "heading3": "h3",
+    "heading4": "h4",
+    "heading5": "h5",
+    "heading6": "h6",
+    "input": "input",
+    "table": "table",
+    "row": "tr",
+    "column": "tb",
+    "new-line": "br",
+    "video": "video",
+    "audio": "audio",
+    "window": "iframe",
+    "container": "div",
+    "title": "title",
+    "list-item": "li",
+    "ordered-list": "ol",
+    "unordered-list": "ul",
+    "css": "link",
+    "link": "a",
+    "drop-down": "select",
+    "option": "option",
+    "option-group": "optgroup",
+    "navigation-bar": "nav",
+    "progress-bar": "progress",
+    "quote": "q",
+    "long-quote": "blockqoute",
+    "textarea": "textarea"
+  },
+  "settable": {
+    "color": {
+      "name": "color",
+      "type": "style",
+      "append": ""
+    },
+    "background-color": {
+      "name": "backgroundColor",
+      "type": "style",
+      "append": ""
+    },
+    "text": {
+      "name": "innerText",
+      "type": "attribute",
+      "useSetAttribute": false,
+      "append": ""
+    },
+    "text-decoration": {
+      "name": "textDecoration",
+      "type": "style",
+      "values": {
+        "underline-overline": "underline overline"
+      },
+      "append": ""
+    },
+    "text-align": {
+      "name": "textAlign",
+      "type": "style",
+      "append": ""
+    },
+    "font-style": {
+      "name": "textDecoration",
+      "type": "style",
+      "values": {
+        "underline-overline": "underline overline"
+      },
+      "append": ""
+    },
+    "font-weight": {
+      "name": "fontWeight",
+      "type": "style",
+      "append": ""
+    },
+    "font-family": {
+      "name": "fontFamily",
+      "type": "style",
+      "useSetAttribute": false,
+      "append": ""
+    },
+    "margin-top": {
+      "name": "marginTop",
+      "type": "style",
+      "useSetAttribute": false,
+      "append": "px"
+    },
+    "margin-right": {
+      "name": "marginRight",
+      "type": "style",
+      "useSetAttribute": false,
+      "append": "px"
+    },
+    "margin-bottom": {
+      "name": "marginBottom",
+      "type": "style",
+      "useSetAttribute": false,
+      "append": "px"
+    },
+    "margin-left": {
+      "name": "marginLeft",
+      "type": "style",
+      "useSetAttribute": false,
+      "append": "px"
+    },
+    "margin": {
+      "name": "margin",
+      "type": "style",
+      "useSetAttribute": false,
+      "append": "px"
+    },
+    "padding-top": {
+      "name": "paddingTop",
+      "type": "style",
+      "useSetAttribute": false,
+      "append": "px"
+    },
+    "padding-right": {
+      "name": "paddingRight",
+      "type": "style",
+      "useSetAttribute": false,
+      "append": "px"
+    },
+    "padding-bottom": {
+      "name": "paddingBottom",
+      "type": "style",
+      "useSetAttribute": false,
+      "append": "px"
+    },
+    "padding-left": {
+      "name": "paddingLeft",
+      "type": "style",
+      "useSetAttribute": false,
+      "append": "px"
+    },
+    "padding": {
+      "name": "padding",
+      "type": "style",
+      "useSetAttribute": false,
+      "append": "px"
+    },
+    "id": {
+      "name": "id",
+      "type": "attribute",
+      "useSetAttribute": false,
+      "append": ""
+    },
+    "font-size": {
+      "name": "fontSize",
+      "type": "style",
+      "append": "px"
+    },
+    "width": {
+      "name": "width",
+      "type": "style",
+      "useSetAttribute": false,
+      "append": "px"
+    },
+    "height": {
+      "name": "height",
+      "type": "style",
+      "useSetAttribute": false,
+      "append": "px"
+    },
+    "frame-width": {
+      "name": "witdh",
+      "type": "attribute",
+      "useSetAttribute": false,
+      "prepend": "\"",
+      "append": "px\""
+    },
+    "frame-height": {
+      "name": "height",
+      "type": "attribute",
+      "useSetAttribute": false,
+      "prepend": "\"",
+      "append": "px\""
+    },
+    "source": {
+      "name": "src",
+      "type": "attribute",
+      "useSetAttribute": false,
+      "append": ""
+    },
+    "position": {
+      "name": "position",
+      "type": "style",
+      "append": ""
+    },
+    "border-width-top": {
+      "name": "borderTopWidth",
+      "type": "style",
+      "useSetAttribute": false,
+      "append": "px"
+    },
+    "border-width-right": {
+      "name": "borderRightWidth",
+      "type": "style",
+      "useSetAttribute": false,
+      "append": "px"
+    },
+    "border-width-bottom": {
+      "name": "borderBottomWidth",
+      "type": "style",
+      "useSetAttribute": false,
+      "append": "px"
+    },
+    "border-width-left": {
+      "name": "borderLeftWidth",
+      "type": "style",
+      "useSetAttribute": false,
+      "append": "px"
+    },
+    "border-width": {
+      "name": "borderWidth",
+      "type": "style",
+      "useSetAttribute": false,
+      "append": "px"
+    },
+    "border-style-top": {
+      "name": "borderTopStyle",
+      "type": "style",
+      "append": ""
+    },
+    "border-style-right": {
+      "name": "borderRightStyle",
+      "type": "style",
+      "append": ""
+    },
+    "border-style-bottom": {
+      "name": "borderBottomStyle",
+      "type": "style",
+      "append": ""
+    },
+    "border-style-left": {
+      "name": "borderLeftStyle",
+      "type": "style",
+      "append": ""
+    },
+    "border-style": {
+      "name": "borderStyle",
+      "type": "style",
+      "append": ""
+    },
+    "border-color-top": {
+      "name": "borderTopColor",
+      "type": "style",
+      "append": ""
+    },
+    "border-color-right": {
+      "name": "borderRightColor",
+      "type": "style",
+      "append": ""
+    },
+    "border-color-bottom": {
+      "name": "borderBottomColor",
+      "type": "style",
+      "append": ""
+    },
+    "border-color-left": {
+      "name": "borderLeftColor",
+      "type": "style",
+      "append": ""
+    },
+    "border-color": {
+      "name": "borderColor",
+      "type": "style",
+      "append": ""
+    },
+    "border-radius": {
+      "name": "borderRadius",
+      "type": "style",
+      "useSetAttribute": false,
+      "append": "px"
+    }
+  },
+  "operators": {
+    "equal": "===",
+    "lower": "<",
+    "greater": ">",
+    "lower-equal": "<=",
+    "greater-equal": ">="
+  },
+  "events": {
+    "pressed": "onclick",
+    "touched": "onmouseover",
+    "not-touched": "onmouseleave"
+  }
+}

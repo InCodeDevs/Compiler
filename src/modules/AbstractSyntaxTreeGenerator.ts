@@ -4,7 +4,6 @@
  */
 import { JSONObject } from "../types/JSONObject";
 import PreCompiler from "./PreCompiler";
-import LanguageSelector from "./LanguageSelector";
 
 export default class AbstractSyntaxTreeGenerator {
   private input: string;

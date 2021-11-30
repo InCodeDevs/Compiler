@@ -1,0 +1,486 @@
+{
+  "creatable": {
+    "knopf": "button",
+    "absatz": "p",
+    "text": "span",
+    "bild": "img",
+    "überschrift": "h1",
+    "überschrift1": "h1",
+    "überschrift2": "h2",
+    "überschrift3": "h3",
+    "überschrift4": "h4",
+    "überschrift5": "h5",
+    "überschrift6": "h6",
+    "eingabefeld": "input",
+    "tabelle": "table",
+    "zeile": "tr",
+    "spalte": "tb",
+    "zeilenumbruch": "br",
+    "video": "video",
+    "ton": "audio",
+    "fenster": "iframe",
+    "container": "div",
+    "titel": "title",
+    "liste": "li",
+    "geordnete-liste": "ol",
+    "ungeordnete-liste": "ul",
+    "css": "link",
+    "link": "a",
+    "drop-down": "select",
+    "option": "option",
+    "optionengruppe": "optgroup",
+    "navigationsleiste": "nav",
+    "fortschrittsanzeige": "progress",
+    "zitat": "q",
+    "langes-zitat": "blockqoute",
+    "textarea": "textarea"
+  },
+  "settable": {
+    "farbe": {
+      "name": "color",
+      "type": "style",
+      "values": {
+        "schwarz": "black",
+        "weiß": "white",
+        "blau": "blue",
+        "grün": "lime",
+        "gelb": "yellow",
+        "rot": "red",
+        "grau": "gray",
+        "hellgrau": "lightgray",
+        "rosa": "pink",
+        "pink": "pink",
+        "lila": "violet",
+        "violett": "violet",
+        "orange": "orange"
+      },
+      "append": ""
+    },
+    "hintergrundfarbe": {
+      "name": "backgroundColor",
+      "type": "style",
+      "values": {
+        "schwarz": "black",
+        "weiß": "white",
+        "blau": "blue",
+        "grün": "lime",
+        "gelb": "yellow",
+        "rot": "red",
+        "grau": "gray",
+        "hellgrau": "lightgray",
+        "rosa": "pink",
+        "pink": "pink",
+        "lila": "violet",
+        "violett": "violet",
+        "orange": "orange"
+      },
+      "append": ""
+    },
+    "text": {
+      "name": "innerText",
+      "type": "attribute",
+      "useSetAttribute": false,
+      "append": ""
+    },
+    "textdekoration": {
+      "name": "textDecoration",
+      "type": "style",
+      "values": {
+        "unterstrichen": "underline",
+        "überstrichen": "overline",
+        "durchgestrichen": "line-through",
+        "blink": "blink",
+        "nichts": "none",
+        "unterstrichen-überstrichen": "underline overline"
+      },
+      "append": ""
+    },
+    "textausrichtung": {
+      "name": "textAlign",
+      "type": "style",
+      "values": {
+        "links": "left",
+        "rechts": "right",
+        "start": "start",
+        "ende": "end",
+        "mitte": "center"
+      },
+      "append": ""
+    },
+    "schriftstil": {
+      "name": "textDecoration",
+      "type": "style",
+      "values": {
+        "unterstrichen": "underline",
+        "überstrichen": "overline",
+        "durchgestrichen": "line-through",
+        "blink": "blink",
+        "nichts": "none",
+        "unterstrichen-überstrichen": "underline overline"
+      },
+      "append": ""
+    },
+    "schriftbreite": {
+      "name": "fontWeight",
+      "type": "style",
+      "values": {
+        "fett": "bold",
+        "normal": "normal",
+        "nichts": "normal"
+      },
+      "append": ""
+    },
+    "schriftart": {
+      "name": "fontFamily",
+      "type": "style",
+      "useSetAttribute": false,
+      "append": ""
+    },
+    "abstand-oben": {
+      "name": "marginTop",
+      "type": "style",
+      "useSetAttribute": false,
+      "append": "px"
+    },
+    "abstand-rechts": {
+      "name": "marginRight",
+      "type": "style",
+      "useSetAttribute": false,
+      "append": "px"
+    },
+    "abstand-unten": {
+      "name": "marginBottom",
+      "type": "style",
+      "useSetAttribute": false,
+      "append": "px"
+    },
+    "abstand-links": {
+      "name": "marginLeft",
+      "type": "style",
+      "useSetAttribute": false,
+      "append": "px"
+    },
+    "abstand": {
+      "name": "margin",
+      "type": "style",
+      "useSetAttribute": false,
+      "append": "px"
+    },
+    "innerer-abstand-oben": {
+      "name": "paddingTop",
+      "type": "style",
+      "useSetAttribute": false,
+      "append": "px"
+    },
+    "innerer-abstand-rechts": {
+      "name": "paddingRight",
+      "type": "style",
+      "useSetAttribute": false,
+      "append": "px"
+    },
+    "innerer-abstand-unten": {
+      "name": "paddingBottom",
+      "type": "style",
+      "useSetAttribute": false,
+      "append": "px"
+    },
+    "innerer-abstand-links": {
+      "name": "paddingLeft",
+      "type": "style",
+      "useSetAttribute": false,
+      "append": "px"
+    },
+    "innerer-abstand": {
+      "name": "padding",
+      "type": "style",
+      "useSetAttribute": false,
+      "append": "px"
+    },
+    "id": {
+      "name": "id",
+      "type": "attribute",
+      "useSetAttribute": false,
+      "append": ""
+    },
+    "schriftgröße": {
+      "name": "fontSize",
+      "type": "style",
+      "append": "px"
+    },
+    "breite": {
+      "name": "witdh",
+      "type": "style",
+      "useSetAttribute": false,
+      "append": "px"
+    },
+    "höhe": {
+      "name": "height",
+      "type": "style",
+      "useSetAttribute": false,
+      "append": "px"
+    },
+    "rahmenbreite": {
+      "name": "witdh",
+      "type": "attribute",
+      "useSetAttribute": false,
+      "prepend": "\"",
+      "append": "px\""
+    },
+    "rahmenhöhe": {
+      "name": "height",
+      "type": "attribute",
+      "useSetAttribute": false,
+      "prepend": "\"",
+      "append": "px\""
+    },
+    "quelle": {
+      "name": "src",
+      "type": "attribute",
+      "useSetAttribute": false,
+      "append": ""
+    },
+    "position": {
+      "name": "position",
+      "type": "style",
+      "values": {
+        "absolut": "absolute",
+        "fest": "fixed",
+        "relativ": "relative"
+      },
+      "append": ""
+    },
+    "umrandungsbreite-oben": {
+      "name": "borderTopWidth",
+      "type": "style",
+      "useSetAttribute": false,
+      "append": "px"
+    },
+    "umrandungsbreite-rechts": {
+      "name": "borderRightWidth",
+      "type": "style",
+      "useSetAttribute": false,
+      "append": "px"
+    },
+    "umrandungsbreite-unten": {
+      "name": "borderBottomWidth",
+      "type": "style",
+      "useSetAttribute": false,
+      "append": "px"
+    },
+    "umrandungsbreite-links": {
+      "name": "borderLeftWidth",
+      "type": "style",
+      "useSetAttribute": false,
+      "append": "px"
+    },
+    "umrandungsbreite": {
+      "name": "borderWidth",
+      "type": "style",
+      "useSetAttribute": false,
+      "append": "px"
+    },
+    "umrandungsstil-oben": {
+      "name": "borderTopStyle",
+      "type": "style",
+      "values": {
+        "nichts": "none",
+        "versteckt": "hidden",
+        "gepunktet": "dotted",
+        "gestrichelt": "dashed",
+        "solide": "solid",
+        "doppelt": "double",
+        "gerillt": "groove",
+        "3d": "ridge",
+        "eingesetzt": "inset",
+        "draufgelegt": "outset"
+      },
+      "append": ""
+    },
+    "umrandungsstil-rechts": {
+      "name": "borderRightStyle",
+      "type": "style",
+      "values": {
+        "nichts": "none",
+        "versteckt": "hidden",
+        "gepunktet": "dotted",
+        "gestrichelt": "dashed",
+        "solide": "solid",
+        "doppelt": "double",
+        "gerillt": "groove",
+        "3d": "ridge",
+        "eingesetzt": "inset",
+        "draufgelegt": "outset"
+      },
+      "append": ""
+    },
+    "umrandungsstil-unten": {
+      "name": "borderBottomStyle",
+      "type": "style",
+      "values": {
+        "nichts": "none",
+        "versteckt": "hidden",
+        "gepunktet": "dotted",
+        "gestrichelt": "dashed",
+        "solide": "solid",
+        "doppelt": "double",
+        "gerillt": "groove",
+        "3d": "ridge",
+        "eingesetzt": "inset",
+        "draufgelegt": "outset"
+      },
+      "append": ""
+    },
+    "umrandungsstil-links": {
+      "name": "borderLeftStyle",
+      "type": "style",
+      "values": {
+        "nichts": "none",
+        "versteckt": "hidden",
+        "gepunktet": "dotted",
+        "gestrichelt": "dashed",
+        "solide": "solid",
+        "doppelt": "double",
+        "gerillt": "groove",
+        "3d": "ridge",
+        "eingesetzt": "inset",
+        "draufgelegt": "outset"
+      },
+      "append": ""
+    },
+    "umrandungsstil": {
+      "name": "borderStyle",
+      "type": "style",
+      "values": {
+        "nichts": "none",
+        "versteckt": "hidden",
+        "gepunktet": "dotted",
+        "gestrichelt": "dashed",
+        "solide": "solid",
+        "doppelt": "double",
+        "gerillt": "groove",
+        "3d": "ridge",
+        "eingesetzt": "inset",
+        "draufgelegt": "outset"
+      },
+      "append": ""
+    },
+    "umrandungsfarbe-oben": {
+      "name": "borderTopColor",
+      "type": "style",
+      "values": {
+        "schwarz": "black",
+        "weiß": "white",
+        "blau": "blue",
+        "grün": "lime",
+        "gelb": "yellow",
+        "rot": "red",
+        "grau": "gray",
+        "hellgrau": "lightgray",
+        "rosa": "pink",
+        "pink": "pink",
+        "lila": "violet",
+        "violett": "violet",
+        "orange": "orange"
+      },
+      "append": ""
+    },
+    "umrandungsfarbe-rechts": {
+      "name": "borderRightColor",
+      "type": "style",
+      "values": {
+        "schwarz": "black",
+        "weiß": "white",
+        "blau": "blue",
+        "grün": "lime",
+        "gelb": "yellow",
+        "rot": "red",
+        "grau": "gray",
+        "hellgrau": "lightgray",
+        "rosa": "pink",
+        "pink": "pink",
+        "lila": "violet",
+        "violett": "violet",
+        "orange": "orange"
+      },
+      "append": ""
+    },
+    "umrandungsfarbe-unten": {
+      "name": "borderBottomColor",
+      "type": "style",
+      "values": {
+        "schwarz": "black",
+        "weiß": "white",
+        "blau": "blue",
+        "grün": "lime",
+        "gelb": "yellow",
+        "rot": "red",
+        "grau": "gray",
+        "hellgrau": "lightgray",
+        "rosa": "pink",
+        "pink": "pink",
+        "lila": "violet",
+        "violett": "violet",
+        "orange": "orange"
+      },
+      "append": ""
+    },
+    "umrandungsfarbe-links": {
+      "name": "borderLeftColor",
+      "type": "style",
+      "values": {
+        "schwarz": "black",
+        "weiß": "white",
+        "blau": "blue",
+        "grün": "lime",
+        "gelb": "yellow",
+        "rot": "red",
+        "grau": "gray",
+        "hellgrau": "lightgray",
+        "rosa": "pink",
+        "pink": "pink",
+        "lila": "violet",
+        "violett": "violet",
+        "orange": "orange"
+      },
+      "append": ""
+    },
+    "umrandungsfarbe": {
+      "name": "borderColor",
+      "type": "style",
+      "values": {
+        "schwarz": "black",
+        "weiß": "white",
+        "blau": "blue",
+        "grün": "lime",
+        "gelb": "yellow",
+        "rot": "red",
+        "grau": "gray",
+        "hellgrau": "lightgray",
+        "rosa": "pink",
+        "pink": "pink",
+        "lila": "violet",
+        "violett": "violet",
+        "orange": "orange"
+      },
+      "append": ""
+    },
+    "umrandungsradius": {
+      "name": "borderRadius",
+      "type": "style",
+      "useSetAttribute": false,
+      "append": "px"
+    }
+  },
+  "operators": {
+    "gleich": "==",
+    "kleiner": "<",
+    "größer": ">",
+    "kleiner-gleich": "<=",
+    "größer-gleich": ">="
+  },
+  "events": {
+    "gedrückt": "onclick",
+    "berührt": "onmouseover",
+    "nicht-berührt": "onmouseleave"
+  }
+}

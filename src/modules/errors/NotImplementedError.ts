@@ -4,8 +4,8 @@
  */
 import InCodeError from "./InCodeError";
 
-export default class AbstractSyntaxTreeGenerationError extends InCodeError {
+export default class NotImplementedError extends InCodeError {
   constructor(msg: string) {
-    super("AbstractSyntaxTreeGenerationError", msg);
+    super("NotImplementedError", msg);
   }
 }
