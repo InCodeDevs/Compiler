@@ -47,7 +47,7 @@ export default class All extends InCodeTest {
             )
             .toString();
 
-          const result = JSON.stringify(new Compiler(content).finalize());
+          const result = JSON.stringify(Compiler.compile(content));
 
           this.check(result, resultContent, "/resources/test/all", file);
         } else {

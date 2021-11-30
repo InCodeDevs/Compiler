@@ -9,22 +9,21 @@ import Dictionary from "./Dictionary";
 import LanguageCompiler from "./LanguageCompiler";
 
 export default class Compiler {
-  private code: string;
-  private abstractSyntaxTree: JSONObject;
-  private return: string;
-
-  constructor(code: string) {
-    this.code = code;
+  public static compile(code: string): string {
     Dictionary.loadDictionary();
+    let result = new PreCompiler(code).finalize();
+    let abstractSyntaxTree = new AbstractSyntaxTreeGenerator(result).finalize();
+    result = new LanguageCompiler(abstractSyntaxTree).finalize();
+    return result;
   }
 
-  finalize(): string {
-    this.code = new PreCompiler(this.code).finalize();
-    this.abstractSyntaxTree = new AbstractSyntaxTreeGenerator(
-      this.code
-    ).finalize();
-    this.return = new LanguageCompiler(this.abstractSyntaxTree).finalize();
+  public static compileAST(ast: JSONObject): string {
+    Dictionary.loadDictionary();
+    return "";
+  }
 
-    return this.return;
+  public static generateAST(code: string): JSONObject {
+    let result = new PreCompiler(code).finalize();
+    return new AbstractSyntaxTreeGenerator(result).finalize();
   }
 }
