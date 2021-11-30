@@ -8,7 +8,14 @@ import PreCompiler from "./PreCompiler";
 import Dictionary from "./Dictionary";
 import LanguageCompiler from "./LanguageCompiler";
 
+/**
+ * The Main Compiler of InCode
+ */
 export default class Compiler {
+  /**
+   * Compiles InCode to JavaScript. This function automatically detects the Language InCode is written in.
+   * @param code The code that will be compiled.
+   */
   public static compile(code: string): string {
     Dictionary.loadDictionary();
     let result = new PreCompiler(code).finalize();
@@ -17,11 +24,19 @@ export default class Compiler {
     return result;
   }
 
+  /**
+   * Compiles an Abstract Syntax Tree JSON Object. This function automatically detects the Language InCode is written in.
+   * @param ast The Abstract Syntax Tree JSON Object.
+   */
   public static compileAST(ast: JSONObject): string {
     Dictionary.loadDictionary();
-    return "";
+    return new LanguageCompiler(ast).finalize();
   }
 
+  /**
+   * Generates an Abstract Syntax Tree JSON Object of an InCode.
+   * @param code The code that will be used to generate the Abstract Syntax Tree JSON Object.
+   */
   public static generateAST(code: string): JSONObject {
     let result = new PreCompiler(code).finalize();
     return new AbstractSyntaxTreeGenerator(result).finalize();

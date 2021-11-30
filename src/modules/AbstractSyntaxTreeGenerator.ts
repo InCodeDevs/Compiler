@@ -5,6 +5,9 @@
 import { JSONObject } from "../types/JSONObject";
 import PreCompiler from "./PreCompiler";
 
+/**
+ * This class can generate Abstract Syntax Trees of code.
+ */
 export default class AbstractSyntaxTreeGenerator {
   private input: string;
   private lines: string[];
@@ -12,6 +15,11 @@ export default class AbstractSyntaxTreeGenerator {
   private words: JSONObject;
   private ast: JSONObject[];
 
+  /**
+   * Creates a new Instance of an AbstractSyntaxTreeGenerator
+   * @param input The Code that will be interpreted.
+   * @param spacesAsIntends Custom number of spaces that will be interpreted as tabs.
+   */
   constructor(input: string, spacesAsIntends: number = 2) {
     this.input = new PreCompiler(input).finalize();
     this.lines = this.input.split("\n");
@@ -123,6 +131,10 @@ export default class AbstractSyntaxTreeGenerator {
     this.ast = nestedAST;
   }
 
+  /**
+   * Generates the Abstract Syntax Tree
+   * @return The Abstract Syntax Tree as a {@link JSONObject}
+   */
   public finalize(): JSONObject {
     this.splitWords();
     this.generateAST();
@@ -130,7 +142,7 @@ export default class AbstractSyntaxTreeGenerator {
     return this.ast;
   }
 
-  protected helperGenerateNestedASTObject(object: JSONObject): JSONObject {
+  private helperGenerateNestedASTObject(object: JSONObject): JSONObject {
     object.innerObjects = [];
     return object;
   }

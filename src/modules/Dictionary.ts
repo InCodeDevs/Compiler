@@ -6,9 +6,15 @@ import { JSONObject } from "../types/JSONObject";
 import dic_de from "./dictionary/german.json";
 import dic_en from "./dictionary/english.json";
 
+/**
+ * This Class is used as Database for identifying the InCode Language
+ */
 export default class Dictionary {
   public static dic: JSONObject = {};
 
+  /**
+   * Initializes the Database
+   */
   public static loadDictionary() {
     this.dic.german = dic_de;
     this.dic.english = dic_en;

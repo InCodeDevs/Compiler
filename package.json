@@ -4,8 +4,9 @@
   "description": "The new compiler for the InCode Programming Language",
   "main": "bundles/incode.compiler.min.umd.js",
   "scripts": {
-    "prepublishOnly": "npm run bundle",
-    "build": "tsc",
+    "prepublishOnly": "npm run bundle && npm run buildDocs",
+    "build": "del-cli --force docs && tsc",
+    "buildDocs": "del-cli --force docs && typedoc --out docs --entryPointStrategy expand ./src",
     "test": "npm run build && node dist/test/index.js",
     "bundle": "npm run clean && npm run build && npm run bundle:esm && npm run bundle:umd && npm run minify:esm && npm run minify:umd",
     "bundle:no-clean": "npm run build && npm run bundle:esm && npm run bundle:umd && npm run minify:esm && npm run minify:umd",
@@ -13,7 +14,7 @@
     "bundle:umd": "rollup dist/index.js --file bundles/incode.compiler.umd.js --format umd --name InCode -c rollup.config.js",
     "minify:esm": "uglifyjs bundles/incode.compiler.mjs --compress --v8 --webkit --no-rename --keep-fnames --output bundles/incode.compiler.min.mjs",
     "minify:umd": "uglifyjs bundles/incode.compiler.umd.js --compress --v8 --webkit --no-rename --keep-fnames --output bundles/incode.compiler.min.umd.js",
-    "clean": "del-cli --force dist && del-cli --force bundles"
+    "clean": "del-cli --force dist && del-cli --force docs && del-cli --force bundles"
   },
   "repository": {
     "type": "git",
@@ -31,17 +32,18 @@
   },
   "homepage": "https://github.com/InCodeDevs/Compiler#readme",
   "dependencies": {
+    "@rollup/plugin-json": "^4.1.0",
     "@types/chalk": "^2.2.0",
     "@types/node": "^16.11.10",
     "chalk": "^4.0.0",
     "commander": "^8.3.0",
     "copyfiles": "^2.4.1",
-    "typescript": "^4.5.2",
-    "yarn": "^1.22.17",
-    "@rollup/plugin-json": "^4.1.0",
     "del-cli": "^4.0.1",
     "prettier": "^2.4.1",
     "rollup": "^2.60.2",
-    "uglify-js": "^3.14.3"
+    "typedoc": "^0.22.10",
+    "typescript": "^4.5.2",
+    "uglify-js": "^3.14.3",
+    "yarn": "^1.22.17"
   }
 }

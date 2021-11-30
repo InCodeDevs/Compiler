@@ -6,7 +6,14 @@
 import { JSONObject } from "../types/JSONObject";
 import Dictionary from "./Dictionary";
 
+/**
+ * This Class can identify the right InCode Language
+ */
 export default class LanguageSelector {
+  /**
+   * This function identifies the InCode Language
+   * @param ast The Abstract Syntax Tree of the Code
+   */
   public static suggestLanguage(ast: JSONObject): string {
     const dic = Dictionary.dic;
     let index = 0;

@@ -3,11 +3,18 @@
  * @copyright (c) 2018-2021 Ben Siebert. All rights reserved.
  */
 
+/**
+ * This Class prepares the Code
+ */
 export default class PreCompiler {
   private readonly input: string;
   private lines: string[];
   private return: string;
 
+  /**
+   * Creates a new Instance that will prepare the code.
+   * @param input The code that will be prepared
+   */
   constructor(input: string) {
     this.input = input;
     this.lines = this.input.split("\n");
@@ -26,6 +33,10 @@ export default class PreCompiler {
     this.return = this.lines.join("\n");
   }
 
+  /**
+   * Prepares the code
+   * @return The Prepared Code
+   */
   finalize(): string {
     this.return = this.input;
     this.removeComments();
