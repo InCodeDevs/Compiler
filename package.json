@@ -6,8 +6,12 @@
   "scripts": {
     "build": "tsc",
     "test": "yarn build && node dist/test/index.js",
-    "copytest": "copyfiles -u ./src/test/test_files/**/*.* ./dist/test/test_files/",
-    "test:german": "yarn build && node bin/cli.js --file ../examples/de/testing.icx --language german"
+    "bundle": "yarn clean && yarn build && yarn bundle:esm && yarn bundle:umd && yarn minify:esm && yarn minify:umd",
+    "bundle:esm": "rollup dist/index.js --file bundles/incode.compiler.mjs --format esm -c rollup.config.js",
+    "bundle:umd": "rollup dist/index.js --file bundles/incode.compiler.umd.js --format umd --name InCode -c rollup.config.js",
+    "minify:esm": "uglifyjs bundles/incode.compiler.mjs --compress --v8 --webkit --no-rename --keep-fnames --output bundles/incode.compiler.min.mjs",
+    "minify:umd": "uglifyjs bundles/incode.compiler.umd.js --compress --v8 --webkit --no-rename --keep-fnames --output bundles/incode.compiler.min.umd.js",
+    "clean": "del-cli --force dist && del-cli --force bundles"
   },
   "repository": {
     "type": "git",
@@ -34,6 +38,10 @@
     "yarn": "^1.22.17"
   },
   "devDependencies": {
-    "prettier": "^2.4.1"
+    "@rollup/plugin-json": "^4.1.0",
+    "del-cli": "^4.0.1",
+    "prettier": "^2.4.1",
+    "rollup": "^2.60.2",
+    "uglify-js": "^3.14.3"
   }
 }
