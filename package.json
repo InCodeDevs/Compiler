@@ -1,6 +1,6 @@
 {
   "name": "@incodelang/compiler",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "The new compiler for the InCode Programming Language",
   "main": "bundles/incode.compiler.min.umd.js",
   "scripts": {
