@@ -1,6 +1,6 @@
 {
   "name": "@incodelang/compiler",
-  "version": "1.1.2",
+  "version": "1.1.3",
   "description": "The new compiler for the InCode Programming Language",
   "main": "bundles/incode.compiler.min.umd.js",
   "scripts": {
@@ -36,7 +36,6 @@
     "@types/chalk": "^2.2.0",
     "@types/node": "^16.11.10",
     "chalk": "^4.0.0",
-    "commander": "^8.3.0",
     "copyfiles": "^2.4.1",
     "del-cli": "^4.0.1",
     "prettier": "^2.4.1",
