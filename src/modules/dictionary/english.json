@@ -7,6 +7,7 @@
     "repeat": "repeat",
     "print": "print",
     "ask": "ask",
-    "import": "import"
+    "import": "import",
+    "wait": "wait"
   }
 }

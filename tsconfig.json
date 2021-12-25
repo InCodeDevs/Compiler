@@ -11,7 +11,7 @@
     "removeComments": true,
     "declaration": true,
     "esModuleInterop": true,
-    "resolveJsonModule": true
+    "resolveJsonModule": true,
   },
   "exclude": [
     "node_modules",
