@@ -1,0 +1,19 @@
+{
+  "name": "@incodelang/compiler",
+  "version": "2.0.0",
+  "description": "The official Compiler for the InCode Programming Language",
+  "main": "",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/InCodeDevs/Compiler.git"
+  },
+  "author": "The InCode Developers",
+  "license": "GPL-3.0-only",
+  "bugs": {
+    "url": "https://github.com/InCodeDevs/Compiler/issues"
+  },
+  "homepage": "https://github.com/InCodeDevs/Compiler#readme"
+}
