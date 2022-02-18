@@ -1,0 +1,12 @@
+{
+  "extends": "./tsconfig.base.json",
+  "compilerOptions": {
+    "module": "ESNext",
+    "target": "es5",
+    "outDir": "./dist/esm",
+    "sourceMap": true
+  },
+  "exclude": [
+    "node_modules"
+  ]
+}

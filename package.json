@@ -2,9 +2,15 @@
   "name": "@incodelang/compiler",
   "version": "2.0.0",
   "description": "The official Compiler for the InCode Programming Language",
-  "main": "",
+  "main": "dist/cjs/incode.compiler.bundle.min.js",
+  "module": "dist/mjs/incode.compiler.bundle.min.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "pipeline": "npm run build && npm run build && npm run bundle:esm && npm run bundle:cjs && npm run minify:cjs && npm run minify:esm",
+    "build": "tsc --project tsconfig.cjs.json && tsc --project tsconfig.esm.json",
+    "bundle:esm": "rollup dist/esm/index.js -c rollup.config.js -o dist/esm/incode.compiler.bundle.js",
+    "bundle:cjs": "rollup dist/cjs/index.js -c rollup.config.js -o dist/cjs/incode.compiler.bundle.js",
+    "minify:esm": "uglifyjs dist/esm/incode.compiler.bundle.js --compress --v8 --webkit --no-rename --keep-fnames --output dist/esm/incode.compiler.bundle.min.js",
+    "minify:cjs": "uglifyjs dist/cjs/incode.compiler.bundle.js --compress --v8 --webkit --no-rename --keep-fnames --output dist/cjs/incode.compiler.bundle.min.js"
   },
   "repository": {
     "type": "git",
@@ -15,5 +21,14 @@
   "bugs": {
     "url": "https://github.com/InCodeDevs/Compiler/issues"
   },
-  "homepage": "https://github.com/InCodeDevs/Compiler#readme"
+  "homepage": "https://github.com/InCodeDevs/Compiler#readme",
+  "dependencies": {
+    "@rollup/plugin-json": "^4.1.0",
+    "@types/node": "^17.0.18",
+    "rollup": "^2.67.3",
+    "uglify-js": "^3.15.1"
+  },
+  "devDependencies": {
+    "typescript": "^4.5.5"
+  }
 }
