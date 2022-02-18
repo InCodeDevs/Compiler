@@ -97,3 +97,7 @@ export class AbstractSyntaxTreeGenerator {
     return matrix;
   }
 }
+
+console.log(
+  AbstractSyntaxTreeGenerator.generate("@ document.createElement('div')")
+);
