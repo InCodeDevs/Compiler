@@ -5,8 +5,6 @@
 import { AliasManager } from "../AliasManager";
 
 export class CreateCommand {
-  public static readonly COMMAND_NAME = "create";
-
   public static compile(args: string[]): string {
     if (args.length === 1) {
       return `let ${args[0]};`;
