@@ -4,5 +4,8 @@
  */
 
 export interface AbstractSyntaxTree {
-
+  command: string;
+  intents: number;
+  children: AbstractSyntaxTree[];
+  args: string[];
 }
