@@ -17,7 +17,6 @@ export class AbstractSyntaxTreeGenerator {
     let result: AbstractSyntaxTree[] = [];
 
     let temp: AbstractSyntaxTree[] = [];
-    let temp0: AbstractSyntaxTree[] = [];
 
     words.forEach((wordList) => {
       if (wordList.length === 0) {
@@ -53,8 +52,6 @@ export class AbstractSyntaxTreeGenerator {
           temp[temp.length - 1].children[
             temp[temp.length - 1].children.length - 1
           ];
-        console.log(ast.command + " " + x);
-        console.log(x);
         let y = x;
         while (
           x !== null &&
@@ -88,6 +85,12 @@ export class AbstractSyntaxTreeGenerator {
 
     const lines = source.split("\n");
     lines.forEach((line) => {
+      if (line.match(/(["'])(?:(?=(\\?))\2.)*?\1/g)) {
+        const quotes = line.match(/(["'])(?:(?=(\\?))\2.)*?\1/g);
+        (quotes as string[]).forEach((quote) => {
+          line = line.replace(quote, quote.split(" ").join("\0"));
+        });
+      }
       matrix.push(line.split(" "));
     });
 
