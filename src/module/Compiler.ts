@@ -10,6 +10,7 @@ import { CreateCommand } from "./commands/CreateCommand";
 import { CallCommand } from "./commands/CallCommand";
 import { AddCommand } from "./commands/AddCommand";
 import { RepeatCommand } from "./commands/RepeatCommand";
+import { PrintCommand } from "./commands/PrintCommand";
 
 export class Compiler {
   public static compile(
@@ -54,6 +55,9 @@ export class Compiler {
         case "repeat":
           code += RepeatCommand.compile(ast.args);
           break;
+        case "print":
+          code += PrintCommand.compile(ast.args);
+          break;
         default:
           code += `// ${ast.command} ${ast.args.join(
             " "
@@ -82,4 +86,6 @@ export class Compiler {
   }
 }
 
-console.log(Compiler.compile("Wiederhole solange x kleiner als 10 ist"));
+console.log(
+  Compiler.compile("Print 'Hello World its a beautiful day' to the console")
+);

@@ -10,6 +10,7 @@ export class AliasManager {
     ["call", "execute", "rufe"],
     ["add", "füge"],
     ["repeat", "wiederhole"],
+    ["print", "gib"],
   ];
 
   public static readonly TYPE_ALIASES = [
@@ -38,6 +39,8 @@ export class AliasManager {
     ["a", "link"],
     ["function", "method", "methode", "funktion"],
     ["document.body", "screen", "bildschirm"],
+    ["console.log", "console", "konsole"],
+    ["alert", "dialogbox"],
   ];
 
   public static readonly OPERATOR_ALIASES = [
