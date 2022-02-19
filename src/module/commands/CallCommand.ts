@@ -6,7 +6,7 @@
 export class CallCommand {
   public static compile(args: string[]): string {
     if (args.length < 1) {
-      return "// This line contained a call command, but no function name was provided.";
+      return "// This line contained a call command, but it was missing arguments.";
     } else {
       return `window.incode.${args[0]}();`;
     }

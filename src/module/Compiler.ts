@@ -9,6 +9,7 @@ import { JSCommand } from "./commands/JSCommand";
 import { CreateCommand } from "./commands/CreateCommand";
 import { CallCommand } from "./commands/CallCommand";
 import { AddCommand } from "./commands/AddCommand";
+import { RepeatCommand } from "./commands/RepeatCommand";
 
 export class Compiler {
   public static compile(
@@ -50,6 +51,9 @@ export class Compiler {
         case "add":
           code += AddCommand.compile(ast.args);
           break;
+        case "repeat":
+          code += RepeatCommand.compile(ast.args);
+          break;
         default:
           code += `// ${ast.command} ${ast.args.join(
             " "
@@ -78,4 +82,4 @@ export class Compiler {
   }
 }
 
-console.log(Compiler.compile("Erstelle x als Knopf\nFüge x zu y hinzu"));
+console.log(Compiler.compile("Wiederhole solange x kleiner als 10 ist"));

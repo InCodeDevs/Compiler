@@ -9,6 +9,7 @@ export class AliasManager {
     ["create", "erstelle", "definiere", "define"],
     ["call", "execute", "rufe"],
     ["add", "füge"],
+    ["repeat", "wiederhole"],
   ];
 
   public static readonly TYPE_ALIASES = [
@@ -39,6 +40,15 @@ export class AliasManager {
     ["document.body", "screen", "bildschirm"],
   ];
 
+  public static readonly OPERATOR_ALIASES = [
+    ["<", "kleiner", "smaller"],
+    [">", "größer"],
+    ["===", "gleich", "equals"],
+    ["!==", "ungleich", "unequal"],
+    [">=", "größergleich", "greaterequal"],
+    ["<=", "kelinergleich", "smallerequal"],
+  ];
+
   public static getCommandAliases(command: string): string[] {
     return (
       AliasManager.CMD_ALIASES.find((alias) =>
@@ -51,6 +61,14 @@ export class AliasManager {
     return (
       AliasManager.TYPE_ALIASES.find((alias) =>
         alias.includes(type.toLowerCase())
+      ) || []
+    );
+  }
+
+  public static getOperatorAliases(operator: string): string[] {
+    return (
+      AliasManager.OPERATOR_ALIASES.find((alias) =>
+        alias.includes(operator.toLowerCase())
       ) || []
     );
   }
