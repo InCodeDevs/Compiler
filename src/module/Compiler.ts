@@ -21,7 +21,7 @@ export class Compiler {
     let code = `/**
  * @generator InCode
  * @version 2.x
- */\n\n`;
+ */\n\nwindow.incode = {}\n\n`;
 
     ast.forEach((node) => {
       // code += "Code Comment" // TODO: implement
@@ -56,6 +56,9 @@ export class Compiler {
     if (ast.children.length > 0) {
       code += " {\n";
       ast.children.forEach((child) => {
+        for (let i = 0; i < child.intents; i++) {
+          code += "  ";
+        }
         code += this.compileNode(child);
       });
       code += "}";
@@ -68,6 +71,5 @@ export class Compiler {
 }
 
 console.log(
-  Compiler.compile("@ document.createElement('div')\nErstelle x als knopf")
+  Compiler.compile("Erstelle x als Methode\n\t@ document.write('Hello World');")
 );
-1;

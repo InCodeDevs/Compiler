@@ -33,6 +33,7 @@ export class AliasManager {
     ["ol", "ordered-list", "geordnete-liste"],
     ["ul", "unordered-list", "ungeordnete-liste"],
     ["a", "link"],
+    ["function", "method", "methode", "funktion"],
   ];
 
   public static getCommandAliases(command: string): string[] {

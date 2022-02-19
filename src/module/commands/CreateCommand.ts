@@ -10,6 +10,9 @@ export class CreateCommand {
       return `let ${args[0]};`;
     } else {
       if (AliasManager.getTypeAliases(args[2]).length > 0) {
+        if (AliasManager.getTypeAliases(args[2])[0] === "function") {
+          return `window.incode.${args[0]} = () =>`;
+        }
         return `let ${args[0]} = document.createElement('${
           AliasManager.getTypeAliases(args[2])[0]
         }');`;

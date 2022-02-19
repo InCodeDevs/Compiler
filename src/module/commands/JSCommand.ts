@@ -7,6 +7,8 @@ export class JSCommand {
   public static readonly COMMAND_NAME = "@";
 
   public static compile(args: string[]): string {
-    return args.join(" ");
+    let c = args.join(" ");
+    c = c.replace(/\u0000/g, " ");
+    return c;
   }
 }
