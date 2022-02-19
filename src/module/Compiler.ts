@@ -7,6 +7,7 @@ import { AbstractSyntaxTreeGenerator } from "./AbstractSyntaxTreeGenerator";
 import { AliasManager } from "./AliasManager";
 import { JSCommand } from "./commands/JSCommand";
 import { CreateCommand } from "./commands/CreateCommand";
+import { CallCommand } from "./commands/CallCommand";
 
 export class Compiler {
   public static compile(
@@ -42,6 +43,9 @@ export class Compiler {
         case "create":
           code += CreateCommand.compile(ast.args);
           break;
+        case "call":
+          code += CallCommand.compile(ast.args);
+          break;
         default:
           code += `// ${ast.command} ${ast.args.join(
             " "
@@ -71,5 +75,7 @@ export class Compiler {
 }
 
 console.log(
-  Compiler.compile("Erstelle x als Methode\n\t@ document.write('Hello World');")
+  Compiler.compile(
+    "Erstelle x als Methode\n\t@ document.write('Hello World');\nRufe x auf"
+  )
 );
