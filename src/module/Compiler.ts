@@ -11,6 +11,7 @@ import { CallCommand } from "./commands/CallCommand";
 import { AddCommand } from "./commands/AddCommand";
 import { RepeatCommand } from "./commands/RepeatCommand";
 import { PrintCommand } from "./commands/PrintCommand";
+import { AskCommand } from "./commands/AskCommand";
 
 export class Compiler {
   public static compile(
@@ -58,6 +59,9 @@ export class Compiler {
         case "print":
           code += PrintCommand.compile(ast.args);
           break;
+        case "ask":
+          code += AskCommand.compile(ast.args);
+          break;
         default:
           code += `// ${ast.command} ${ast.args.join(
             " "
@@ -87,5 +91,7 @@ export class Compiler {
 }
 
 console.log(
-  Compiler.compile("Print 'Hello World its a beautiful day' to the console")
+  Compiler.compile(
+    "Frage 'Hello World'\nFrage 'Hello World' und speicher die Antwort in y"
+  )
 );

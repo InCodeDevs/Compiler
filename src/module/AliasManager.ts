@@ -11,6 +11,7 @@ export class AliasManager {
     ["add", "füge"],
     ["repeat", "wiederhole"],
     ["print", "gib"],
+    ["ask", "frage"],
   ];
 
   public static readonly TYPE_ALIASES = [
