@@ -8,6 +8,7 @@ import { AliasManager } from "./AliasManager";
 import { JSCommand } from "./commands/JSCommand";
 import { CreateCommand } from "./commands/CreateCommand";
 import { CallCommand } from "./commands/CallCommand";
+import { AddCommand } from "./commands/AddCommand";
 
 export class Compiler {
   public static compile(
@@ -46,6 +47,9 @@ export class Compiler {
         case "call":
           code += CallCommand.compile(ast.args);
           break;
+        case "add":
+          code += AddCommand.compile(ast.args);
+          break;
         default:
           code += `// ${ast.command} ${ast.args.join(
             " "
@@ -74,8 +78,4 @@ export class Compiler {
   }
 }
 
-console.log(
-  Compiler.compile(
-    "Erstelle x als Methode\n\t@ document.write('Hello World');\nRufe x auf"
-  )
-);
+console.log(Compiler.compile("Erstelle x als Knopf\nFüge x zu y hinzu"));

@@ -8,6 +8,7 @@ export class AliasManager {
     ["@"],
     ["create", "erstelle", "definiere", "define"],
     ["call", "execute", "rufe"],
+    ["add", "füge"],
   ];
 
   public static readonly TYPE_ALIASES = [
@@ -35,6 +36,7 @@ export class AliasManager {
     ["ul", "unordered-list", "ungeordnete-liste"],
     ["a", "link"],
     ["function", "method", "methode", "funktion"],
+    ["document.body", "screen", "bildschirm"],
   ];
 
   public static getCommandAliases(command: string): string[] {
