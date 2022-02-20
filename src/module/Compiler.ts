@@ -35,7 +35,5 @@ export class Compiler {
 }
 
 console.log(
-  Compiler.compile(
-    "Wenn x gleich 2 ist\n\t@ kill\nSonst wenn x gleich 3 ist\n\t@ kill2\nSonst\n\t@ kill3"
-  )
+  Compiler.compile("Warte 2 Sekunden\nGib 'Hello World' in der Dialogbox aus")
 );

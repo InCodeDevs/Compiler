@@ -16,6 +16,7 @@ import { AbstractSyntaxTreeGenerator } from "../AbstractSyntaxTreeGenerator";
 import { InCodeCommand } from "./InCodeCommand";
 import { IfCommand } from "./IfCommand";
 import { ElseCommand } from "./ElseCommand";
+import { WaitCommand } from "./WaitCommand";
 
 export class CommandExecutor {
   public static readonly COMMANDS: {
@@ -30,6 +31,7 @@ export class CommandExecutor {
     ask: new AskCommand(),
     if: new IfCommand(),
     else: new ElseCommand(),
+    wait: new WaitCommand(),
   };
 
   public static executeCommand(

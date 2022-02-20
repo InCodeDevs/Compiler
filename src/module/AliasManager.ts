@@ -14,6 +14,7 @@ export class AliasManager {
     ["ask", "frage"],
     ["if", "wenn", "falls"],
     ["else", "sonst"],
+    ["wait", "warte"],
   ];
 
   public static readonly TYPE_ALIASES = [
