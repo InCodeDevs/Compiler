@@ -3,8 +3,10 @@
  * @copyright (c) 2018-2021 Ben Siebert. All rights reserved.
  */
 
-export class AskCommand {
-  public static compile(args: string[]): string {
+import { InCodeCommand } from "./InCodeCommand";
+
+export class AskCommand extends InCodeCommand {
+  public execute(args: string[]): string {
     if (args.length === 0) {
       return "// This line contained a print command, but it was missing arguments.";
     } else {

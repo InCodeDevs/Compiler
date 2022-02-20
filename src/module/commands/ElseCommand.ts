@@ -3,13 +3,14 @@
  * @copyright (c) 2018-2021 Ben Siebert. All rights reserved.
  */
 import { InCodeCommand } from "./InCodeCommand";
+import { CommandExecutor } from "./CommandExecutor";
 
-export class CallCommand extends InCodeCommand {
+export class ElseCommand extends InCodeCommand {
   public execute(args: string[]): string {
-    if (args.length < 1) {
-      return "// This line contained a call command, but it was missing arguments.";
+    if (args.length > 0) {
+      return `else ${CommandExecutor.executeCommand(args.join(" "))}`;
     } else {
-      return `window.incode.${args[0]}();`;
+      return "else";
     }
   }
 }

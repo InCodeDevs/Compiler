@@ -3,9 +3,10 @@
  * @copyright (c) 2018-2021 Ben Siebert. All rights reserved.
  */
 import { AliasManager } from "../AliasManager";
+import { InCodeCommand } from "./InCodeCommand";
 
-export class AddCommand {
-  public static compile(args: string[]): string {
+export class AddCommand extends InCodeCommand {
+  public execute(args: string[]): string {
     if (args.length < 4) {
       return "// This line contained an add command, but it was missing arguments.";
     } else {

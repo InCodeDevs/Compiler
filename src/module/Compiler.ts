@@ -4,14 +4,8 @@
  */
 import { AbstractSyntaxTree } from "../types/AbstractSyntaxTree";
 import { AbstractSyntaxTreeGenerator } from "./AbstractSyntaxTreeGenerator";
-import { AliasManager } from "./AliasManager";
-import { JSCommand } from "./commands/JSCommand";
-import { CreateCommand } from "./commands/CreateCommand";
-import { CallCommand } from "./commands/CallCommand";
-import { AddCommand } from "./commands/AddCommand";
-import { RepeatCommand } from "./commands/RepeatCommand";
-import { PrintCommand } from "./commands/PrintCommand";
-import { AskCommand } from "./commands/AskCommand";
+import { CommandExecutor } from "./commands/CommandExecutor";
+import { js_beautify as beautify } from "js-beautify";
 
 export class Compiler {
   public static compile(
@@ -30,68 +24,18 @@ export class Compiler {
 
     ast.forEach((node) => {
       // code += "Code Comment" // TODO: implement
-      code += this.compileNode(node) + "\n";
+      code += CommandExecutor.executeCommand(node) + "\n";
     });
 
-    return code;
-  }
-
-  public static compileNode(ast: AbstractSyntaxTree): string {
-    let code = "";
-
-    if (AliasManager.getCommandAliases(ast.command.toLowerCase()).length > 0) {
-      switch (AliasManager.getCommandAliases(ast.command.toLowerCase())[0]) {
-        case "@":
-          code += JSCommand.compile(ast.args);
-          break;
-        case "create":
-          code += CreateCommand.compile(ast.args);
-          break;
-        case "call":
-          code += CallCommand.compile(ast.args);
-          break;
-        case "add":
-          code += AddCommand.compile(ast.args);
-          break;
-        case "repeat":
-          code += RepeatCommand.compile(ast.args);
-          break;
-        case "print":
-          code += PrintCommand.compile(ast.args);
-          break;
-        case "ask":
-          code += AskCommand.compile(ast.args);
-          break;
-        default:
-          code += `// ${ast.command} ${ast.args.join(
-            " "
-          )} -> Command not implemented yet.`;
-      }
-    } else {
-      code += `// "${ast.command} ${ast.args.join(" ")}" -> Command ${
-        ast.command
-      } not found.`;
-    }
-
-    if (ast.children.length > 0) {
-      code += " {\n";
-      ast.children.forEach((child) => {
-        for (let i = 0; i < child.intents; i++) {
-          code += "  ";
-        }
-        code += this.compileNode(child);
-      });
-      code += "}";
-    }
-
-    code += "\n";
-
-    return code;
+    return beautify(code, {
+      indent_char: " ",
+      indent_size: 2,
+    });
   }
 }
 
 console.log(
   Compiler.compile(
-    "Frage 'Hello World'\nFrage 'Hello World' und speicher die Antwort in y"
+    "Wenn x gleich 2 ist\n\t@ kill\nSonst wenn x gleich 3 ist\n\t@ kill2\nSonst\n\t@ kill3"
   )
 );

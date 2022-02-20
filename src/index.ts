@@ -8,3 +8,4 @@ export { CodeGenerator } from "./module/CodeGenerator";
 export { AbstractSyntaxTreeGenerator } from "./module/AbstractSyntaxTreeGenerator";
 export { AliasManager } from "./module/AliasManager";
 export { Compiler } from "./module/Compiler";
+export { CommandExecutor } from "./module/commands/CommandExecutor";

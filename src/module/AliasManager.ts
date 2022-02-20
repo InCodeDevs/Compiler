@@ -12,6 +12,8 @@ export class AliasManager {
     ["repeat", "wiederhole"],
     ["print", "gib"],
     ["ask", "frage"],
+    ["if", "wenn", "falls"],
+    ["else", "sonst"],
   ];
 
   public static readonly TYPE_ALIASES = [
@@ -53,6 +55,12 @@ export class AliasManager {
     ["<=", "kelinergleich", "smallerequal"],
   ];
 
+  public static readonly EVENT_ALIASES = [
+    ["onclick", "pressed", "gedrückt"],
+    ["onmouseover", "hovered", "berührt"],
+    ["onmouseleave", "not-hovered", "nicht-berührt"],
+  ];
+
   public static getCommandAliases(command: string): string[] {
     return (
       AliasManager.CMD_ALIASES.find((alias) =>
@@ -73,6 +81,14 @@ export class AliasManager {
     return (
       AliasManager.OPERATOR_ALIASES.find((alias) =>
         alias.includes(operator.toLowerCase())
+      ) || []
+    );
+  }
+
+  public static getEventAliases(event: string): string[] {
+    return (
+      AliasManager.EVENT_ALIASES.find((alias) =>
+        alias.includes(event.toLowerCase())
       ) || []
     );
   }
