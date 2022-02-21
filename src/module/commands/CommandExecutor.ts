@@ -17,6 +17,7 @@ import { InCodeCommand } from "./InCodeCommand";
 import { IfCommand } from "./IfCommand";
 import { ElseCommand } from "./ElseCommand";
 import { WaitCommand } from "./WaitCommand";
+import { SetCommand } from "./SetCommand";
 
 export class CommandExecutor {
   public static readonly COMMANDS: {
@@ -32,6 +33,7 @@ export class CommandExecutor {
     if: new IfCommand(),
     else: new ElseCommand(),
     wait: new WaitCommand(),
+    set: new SetCommand(),
   };
 
   public static executeCommand(

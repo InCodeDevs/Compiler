@@ -34,6 +34,4 @@ export class Compiler {
   }
 }
 
-console.log(
-  Compiler.compile("Warte 2 Sekunden\nGib 'Hello World' in der Dialogbox aus")
-);
+console.log(Compiler.compile("Setze die Umrandungsfarbe von x auf blau"));

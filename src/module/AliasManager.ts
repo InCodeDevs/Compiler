@@ -15,6 +15,7 @@ export class AliasManager {
     ["if", "wenn", "falls"],
     ["else", "sonst"],
     ["wait", "warte"],
+    ["set", "setze"],
   ];
 
   public static readonly TYPE_ALIASES = [
@@ -62,6 +63,30 @@ export class AliasManager {
     ["onmouseleave", "not-hovered", "nicht-berührt"],
   ];
 
+  public static readonly COLOR_PROPERTY_ALIASES = [
+    ["style.color", "color", "farbe"],
+    ["style.backgroundColor", "backgroundcolor", "hintergrundfarbe"],
+    ["blue", "blau"],
+    ["lime", "green", "grün"],
+    ["red", "rot"],
+    ["orange"],
+    ["yellow", "gelb"],
+    ["white", "weiß"],
+    ["black", "schwarz"],
+    ["grey", "grau"],
+    ["purple", "lila"],
+    ["pink", "pink"],
+    ["brown", "braun"],
+    ["cyan", "cyan"],
+    ["magenta", "magenta"],
+    ["maroon", "maroon"],
+    ["navy", "navy"],
+    ["olive", "olive"],
+    ["silver", "silber"],
+    ["teal", "teal"],
+    ["transparent", "transparent"],
+  ];
+
   public static getCommandAliases(command: string): string[] {
     return (
       AliasManager.CMD_ALIASES.find((alias) =>
@@ -90,6 +115,14 @@ export class AliasManager {
     return (
       AliasManager.EVENT_ALIASES.find((alias) =>
         alias.includes(event.toLowerCase())
+      ) || []
+    );
+  }
+
+  public static getColorPropertyAliases(colorProperty: string): string[] {
+    return (
+      AliasManager.COLOR_PROPERTY_ALIASES.find((alias) =>
+        alias.includes(colorProperty.toLowerCase())
       ) || []
     );
   }
