@@ -6,6 +6,7 @@
 export class AliasManager {
   public static readonly CMD_ALIASES = [
     ["@"],
+    ["//", "#"],
     ["create", "erstelle", "definiere", "define"],
     ["call", "execute", "rufe"],
     ["add", "füge"],

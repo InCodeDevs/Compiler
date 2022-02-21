@@ -18,12 +18,14 @@ import { IfCommand } from "./IfCommand";
 import { ElseCommand } from "./ElseCommand";
 import { WaitCommand } from "./WaitCommand";
 import { SetCommand } from "./SetCommand";
+import { CommentCommand } from "./CommentCommand";
 
 export class CommandExecutor {
   public static readonly COMMANDS: {
     [key: string]: InCodeCommand;
   } = {
     "@": new JSCommand(),
+    "//": new CommentCommand(),
     create: new CreateCommand(),
     call: new CallCommand(),
     add: new AddCommand(),
