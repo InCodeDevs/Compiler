@@ -33,5 +33,3 @@ export class Compiler {
     });
   }
 }
-
-console.log(Compiler.compile("Setze die Umrandungsfarbe von x auf blau"));

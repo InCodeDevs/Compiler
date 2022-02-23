@@ -3,7 +3,8 @@
   "version": "2.0.0",
   "description": "The official Compiler for the InCode Programming Language",
   "main": "dist/cjs/incode.compiler.bundle.min.js",
-  "module": "dist/mjs/incode.compiler.bundle.min.js",
+  "module": "dist/esm/incode.compiler.bundle.min.js",
+  "types": "dist/types",
   "scripts": {
     "pipeline": "npm run clean && npm run prettier && npm run test && npm run build && npm run build && npm run bundle:esm && npm run bundle:cjs && npm run minify:cjs && npm run minify:esm",
     "clean": "rimraf dist",

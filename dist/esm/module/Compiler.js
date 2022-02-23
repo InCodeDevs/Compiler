@@ -24,5 +24,4 @@ var Compiler = /** @class */ (function () {
     return Compiler;
 }());
 export { Compiler };
-console.log(Compiler.compile("Setze die Umrandungsfarbe von x auf blau"));
 //# sourceMappingURL=Compiler.js.map

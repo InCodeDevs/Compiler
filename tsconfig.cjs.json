@@ -4,7 +4,9 @@
     "module": "CommonJS",
     "target": "es5",
     "outDir": "./dist/cjs",
-    "sourceMap": true
+    "sourceMap": true,
+    "declaration": true,
+    "declarationDir": "./dist/types"
   },
   "exclude": [
     "node_modules"

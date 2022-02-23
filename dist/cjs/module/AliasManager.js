@@ -34,17 +34,17 @@ var AliasManager = /** @class */ (function () {
         }) || []);
     };
     AliasManager.CMD_ALIASES = [
-        ["@"],
-        ["//", "#"],
-        ["create", "erstelle", "definiere", "define"],
+        ["@", "📜"],
+        ["//", "#", "📖"],
+        ["create", "erstelle", "definiere", "define", "➕"],
         ["call", "execute", "rufe"],
         ["add", "füge"],
-        ["repeat", "wiederhole"],
+        ["repeat", "wiederhole", "🔁"],
         ["print", "gib"],
-        ["ask", "frage"],
+        ["ask", "frage", "❓"],
         ["if", "wenn", "falls"],
         ["else", "sonst"],
-        ["wait", "warte"],
+        ["wait", "warte", "⌛"],
         ["set", "setze"],
     ];
     AliasManager.TYPE_ALIASES = [
