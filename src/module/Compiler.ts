@@ -6,12 +6,16 @@ import { AbstractSyntaxTree } from "../types/AbstractSyntaxTree";
 import { AbstractSyntaxTreeGenerator } from "./AbstractSyntaxTreeGenerator";
 import { CommandExecutor } from "./commands/CommandExecutor";
 import { js_beautify as beautify } from "js-beautify";
+import { PreCompiler } from "../util/PreCompiler";
 
 export class Compiler {
   public static compile(
     source: string | AbstractSyntaxTree[],
     comments: boolean = false // @TODO: implement
   ): string {
+    if (typeof source === "string") {
+      source = PreCompiler.preCompile(source);
+    }
     let ast: AbstractSyntaxTree[] = [];
     if (typeof source === "string") {
       ast = AbstractSyntaxTreeGenerator.generate(source);

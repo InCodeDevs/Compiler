@@ -3,9 +3,11 @@
  * @copyright (c) 2018-2021 Ben Siebert. All rights reserved.
  */
 import { AbstractSyntaxTree } from "../types/AbstractSyntaxTree";
+import { PreCompiler } from "../util/PreCompiler";
 
 export class AbstractSyntaxTreeGenerator {
   public static generate(source: string): AbstractSyntaxTree[] {
+    source = PreCompiler.preCompile(source);
     const lines = source.split("\n");
 
     if (lines.length === 0) {
@@ -14,7 +16,7 @@ export class AbstractSyntaxTreeGenerator {
 
     const words: string[][] = this.splitWords(source);
 
-    let result: AbstractSyntaxTree[] = [];
+    let result: AbstractSyntaxTree[];
 
     let temp: AbstractSyntaxTree[] = [];
 
