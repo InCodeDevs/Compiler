@@ -1,6 +1,6 @@
 {
   "name": "@incodelang/compiler",
-  "version": "2.0.3",
+  "version": "2.0.4",
   "description": "The official Compiler for the InCode Programming Language",
   "main": "dist/cjs/incode.compiler.bundle.min.js",
   "module": "dist/esm/incode.compiler.bundle.min.js",
