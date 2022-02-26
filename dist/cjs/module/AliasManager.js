@@ -74,6 +74,7 @@ var AliasManager = /** @class */ (function () {
         ["document.body", "screen", "bildschirm"],
         ["console.log", "console", "konsole"],
         ["alert", "dialogbox"],
+        ["key", "taste"],
     ];
     AliasManager.OPERATOR_ALIASES = [
         ["<", "kleiner", "smaller"],

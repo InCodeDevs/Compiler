@@ -46,6 +46,7 @@ export class AliasManager {
     ["document.body", "screen", "bildschirm"],
     ["console.log", "console", "konsole"],
     ["alert", "dialogbox"],
+    ["key", "taste"],
   ];
 
   public static readonly OPERATOR_ALIASES = [

@@ -30,6 +30,8 @@ var IfCommand = /** @class */ (function (_super) {
         // [5] x is equal to 2
         // [4] x gedrückt wird <command>
         // [4] x is pressed <command>
+        // [6] die Taste x gedrückt wird <command>
+        // [6] the key x is pressed <command>
         if (args.length < 4) {
             return "// This line contained an if command, but it was missing arguments.";
         }
@@ -76,6 +78,11 @@ var IfCommand = /** @class */ (function (_super) {
                     eventPosition = 2;
                 }
                 return "".concat(first, ".addEventListener(\"").concat(event, "\", () => {\n  ").concat(CommandExecutor.executeCommand(command).split("\n")[0], "\n});");
+            }
+            else if (AliasManager.getTypeAliases(args[1]).length > 0 &&
+                AliasManager.getTypeAliases(args[1])[0] === "key") {
+                var command = args.slice(5).join(" ");
+                return "document.addEventListener(\"keydown\", (e) => {\n  if (e.key === \"".concat(args[2], "\") {\n    ").concat(CommandExecutor.executeCommand(command).split("\n")[0], "\n  }\n});");
             }
         }
         return "";

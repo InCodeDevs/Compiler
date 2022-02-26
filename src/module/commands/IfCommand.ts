@@ -12,6 +12,8 @@ export class IfCommand extends InCodeCommand {
     // [5] x is equal to 2
     // [4] x gedrückt wird <command>
     // [4] x is pressed <command>
+    // [6] die Taste x gedrückt wird <command>
+    // [6] the key x is pressed <command>
 
     if (args.length < 4) {
       return "// This line contained an if command, but it was missing arguments.";
@@ -63,6 +65,17 @@ export class IfCommand extends InCodeCommand {
 
         return `${first}.addEventListener("${event}", () => {
   ${CommandExecutor.executeCommand(command).split("\n")[0]}
+});`;
+      } else if (
+        AliasManager.getTypeAliases(args[1]).length > 0 &&
+        AliasManager.getTypeAliases(args[1])[0] === "key"
+      ) {
+        const command = args.slice(5).join(" ");
+
+        return `document.addEventListener("keydown", (e) => {
+  if (e.key === "${args[2]}") {
+    ${CommandExecutor.executeCommand(command).split("\n")[0]}
+  }
 });`;
       }
     }
