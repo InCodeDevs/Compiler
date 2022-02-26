@@ -16,6 +16,7 @@ import { ElseCommand } from "./ElseCommand";
 import { WaitCommand } from "./WaitCommand";
 import { SetCommand } from "./SetCommand";
 import { CommentCommand } from "./CommentCommand";
+import { RemoveCommand } from "./RemoveCommand";
 var CommandExecutor = /** @class */ (function () {
     function CommandExecutor() {
     }
@@ -55,6 +56,7 @@ var CommandExecutor = /** @class */ (function () {
         create: new CreateCommand(),
         call: new CallCommand(),
         add: new AddCommand(),
+        remove: new RemoveCommand(),
         repeat: new RepeatCommand(),
         print: new PrintCommand(),
         ask: new AskCommand(),

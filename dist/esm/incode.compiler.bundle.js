@@ -162,6 +162,7 @@ var AliasManager = /** @class */ (function () {
         ["create", "erstelle", "definiere", "define", "➕"],
         ["call", "execute", "rufe"],
         ["add", "füge"],
+        ["remove", "entferne"],
         ["repeat", "wiederhole", "🔁"],
         ["print", "gib"],
         ["ask", "frage", "❓"],
@@ -248,7 +249,7 @@ var InCodeCommand = /** @class */ (function () {
     return InCodeCommand;
 }());
 
-var __extends$b = (undefined && undefined.__extends) || (function () {
+var __extends$c = (undefined && undefined.__extends) || (function () {
     var extendStatics = function (d, b) {
         extendStatics = Object.setPrototypeOf ||
             ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
@@ -264,7 +265,7 @@ var __extends$b = (undefined && undefined.__extends) || (function () {
     };
 })();
 var JSCommand = /** @class */ (function (_super) {
-    __extends$b(JSCommand, _super);
+    __extends$c(JSCommand, _super);
     function JSCommand() {
         return _super !== null && _super.apply(this, arguments) || this;
     }
@@ -277,7 +278,7 @@ var JSCommand = /** @class */ (function (_super) {
     return JSCommand;
 }(InCodeCommand));
 
-var __extends$a = (undefined && undefined.__extends) || (function () {
+var __extends$b = (undefined && undefined.__extends) || (function () {
     var extendStatics = function (d, b) {
         extendStatics = Object.setPrototypeOf ||
             ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
@@ -293,7 +294,7 @@ var __extends$a = (undefined && undefined.__extends) || (function () {
     };
 })();
 var CreateCommand = /** @class */ (function (_super) {
-    __extends$a(CreateCommand, _super);
+    __extends$b(CreateCommand, _super);
     function CreateCommand() {
         return _super !== null && _super.apply(this, arguments) || this;
     }
@@ -319,7 +320,7 @@ var CreateCommand = /** @class */ (function (_super) {
     return CreateCommand;
 }(InCodeCommand));
 
-var __extends$9 = (undefined && undefined.__extends) || (function () {
+var __extends$a = (undefined && undefined.__extends) || (function () {
     var extendStatics = function (d, b) {
         extendStatics = Object.setPrototypeOf ||
             ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
@@ -335,7 +336,7 @@ var __extends$9 = (undefined && undefined.__extends) || (function () {
     };
 })();
 var CallCommand = /** @class */ (function (_super) {
-    __extends$9(CallCommand, _super);
+    __extends$a(CallCommand, _super);
     function CallCommand() {
         return _super !== null && _super.apply(this, arguments) || this;
     }
@@ -350,7 +351,7 @@ var CallCommand = /** @class */ (function (_super) {
     return CallCommand;
 }(InCodeCommand));
 
-var __extends$8 = (undefined && undefined.__extends) || (function () {
+var __extends$9 = (undefined && undefined.__extends) || (function () {
     var extendStatics = function (d, b) {
         extendStatics = Object.setPrototypeOf ||
             ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
@@ -366,7 +367,7 @@ var __extends$8 = (undefined && undefined.__extends) || (function () {
     };
 })();
 var AddCommand = /** @class */ (function (_super) {
-    __extends$8(AddCommand, _super);
+    __extends$9(AddCommand, _super);
     function AddCommand() {
         return _super !== null && _super.apply(this, arguments) || this;
     }
@@ -386,7 +387,7 @@ var AddCommand = /** @class */ (function (_super) {
     return AddCommand;
 }(InCodeCommand));
 
-var __extends$7 = (undefined && undefined.__extends) || (function () {
+var __extends$8 = (undefined && undefined.__extends) || (function () {
     var extendStatics = function (d, b) {
         extendStatics = Object.setPrototypeOf ||
             ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
@@ -402,7 +403,7 @@ var __extends$7 = (undefined && undefined.__extends) || (function () {
     };
 })();
 var RepeatCommand = /** @class */ (function (_super) {
-    __extends$7(RepeatCommand, _super);
+    __extends$8(RepeatCommand, _super);
     function RepeatCommand() {
         return _super !== null && _super.apply(this, arguments) || this;
     }
@@ -430,7 +431,7 @@ var RepeatCommand = /** @class */ (function (_super) {
     return RepeatCommand;
 }(InCodeCommand));
 
-var __extends$6 = (undefined && undefined.__extends) || (function () {
+var __extends$7 = (undefined && undefined.__extends) || (function () {
     var extendStatics = function (d, b) {
         extendStatics = Object.setPrototypeOf ||
             ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
@@ -446,7 +447,7 @@ var __extends$6 = (undefined && undefined.__extends) || (function () {
     };
 })();
 var PrintCommand = /** @class */ (function (_super) {
-    __extends$6(PrintCommand, _super);
+    __extends$7(PrintCommand, _super);
     function PrintCommand() {
         return _super !== null && _super.apply(this, arguments) || this;
     }
@@ -470,7 +471,7 @@ var PrintCommand = /** @class */ (function (_super) {
  * @author Ben Siebert <ben@mctzock.de>
  * @copyright (c) 2018-2021 Ben Siebert. All rights reserved.
  */
-var __extends$5 = (undefined && undefined.__extends) || (function () {
+var __extends$6 = (undefined && undefined.__extends) || (function () {
     var extendStatics = function (d, b) {
         extendStatics = Object.setPrototypeOf ||
             ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
@@ -486,7 +487,7 @@ var __extends$5 = (undefined && undefined.__extends) || (function () {
     };
 })();
 var AskCommand = /** @class */ (function (_super) {
-    __extends$5(AskCommand, _super);
+    __extends$6(AskCommand, _super);
     function AskCommand() {
         return _super !== null && _super.apply(this, arguments) || this;
     }
@@ -507,7 +508,7 @@ var AskCommand = /** @class */ (function (_super) {
     return AskCommand;
 }(InCodeCommand));
 
-var __extends$4 = (undefined && undefined.__extends) || (function () {
+var __extends$5 = (undefined && undefined.__extends) || (function () {
     var extendStatics = function (d, b) {
         extendStatics = Object.setPrototypeOf ||
             ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
@@ -523,7 +524,7 @@ var __extends$4 = (undefined && undefined.__extends) || (function () {
     };
 })();
 var IfCommand = /** @class */ (function (_super) {
-    __extends$4(IfCommand, _super);
+    __extends$5(IfCommand, _super);
     function IfCommand() {
         return _super !== null && _super.apply(this, arguments) || this;
     }
@@ -589,7 +590,7 @@ var IfCommand = /** @class */ (function (_super) {
     return IfCommand;
 }(InCodeCommand));
 
-var __extends$3 = (undefined && undefined.__extends) || (function () {
+var __extends$4 = (undefined && undefined.__extends) || (function () {
     var extendStatics = function (d, b) {
         extendStatics = Object.setPrototypeOf ||
             ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
@@ -605,7 +606,7 @@ var __extends$3 = (undefined && undefined.__extends) || (function () {
     };
 })();
 var ElseCommand = /** @class */ (function (_super) {
-    __extends$3(ElseCommand, _super);
+    __extends$4(ElseCommand, _super);
     function ElseCommand() {
         return _super !== null && _super.apply(this, arguments) || this;
     }
@@ -620,7 +621,7 @@ var ElseCommand = /** @class */ (function (_super) {
     return ElseCommand;
 }(InCodeCommand));
 
-var __extends$2 = (undefined && undefined.__extends) || (function () {
+var __extends$3 = (undefined && undefined.__extends) || (function () {
     var extendStatics = function (d, b) {
         extendStatics = Object.setPrototypeOf ||
             ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
@@ -636,7 +637,7 @@ var __extends$2 = (undefined && undefined.__extends) || (function () {
     };
 })();
 var WaitCommand = /** @class */ (function (_super) {
-    __extends$2(WaitCommand, _super);
+    __extends$3(WaitCommand, _super);
     function WaitCommand() {
         return _super !== null && _super.apply(this, arguments) || this;
     }
@@ -656,7 +657,7 @@ var WaitCommand = /** @class */ (function (_super) {
     return WaitCommand;
 }(InCodeCommand));
 
-var __extends$1 = (undefined && undefined.__extends) || (function () {
+var __extends$2 = (undefined && undefined.__extends) || (function () {
     var extendStatics = function (d, b) {
         extendStatics = Object.setPrototypeOf ||
             ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
@@ -672,7 +673,7 @@ var __extends$1 = (undefined && undefined.__extends) || (function () {
     };
 })();
 var SetCommand = /** @class */ (function (_super) {
-    __extends$1(SetCommand, _super);
+    __extends$2(SetCommand, _super);
     function SetCommand() {
         return _super !== null && _super.apply(this, arguments) || this;
     }
@@ -1251,7 +1252,7 @@ var SetCommand = /** @class */ (function (_super) {
     return SetCommand;
 }(InCodeCommand));
 
-var __extends = (undefined && undefined.__extends) || (function () {
+var __extends$1 = (undefined && undefined.__extends) || (function () {
     var extendStatics = function (d, b) {
         extendStatics = Object.setPrototypeOf ||
             ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
@@ -1267,7 +1268,7 @@ var __extends = (undefined && undefined.__extends) || (function () {
     };
 })();
 var CommentCommand = /** @class */ (function (_super) {
-    __extends(CommentCommand, _super);
+    __extends$1(CommentCommand, _super);
     function CommentCommand() {
         return _super !== null && _super.apply(this, arguments) || this;
     }
@@ -1275,6 +1276,42 @@ var CommentCommand = /** @class */ (function (_super) {
         return "// " + args.join(" ");
     };
     return CommentCommand;
+}(InCodeCommand));
+
+var __extends = (undefined && undefined.__extends) || (function () {
+    var extendStatics = function (d, b) {
+        extendStatics = Object.setPrototypeOf ||
+            ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
+            function (d, b) { for (var p in b) if (Object.prototype.hasOwnProperty.call(b, p)) d[p] = b[p]; };
+        return extendStatics(d, b);
+    };
+    return function (d, b) {
+        if (typeof b !== "function" && b !== null)
+            throw new TypeError("Class extends value " + String(b) + " is not a constructor or null");
+        extendStatics(d, b);
+        function __() { this.constructor = d; }
+        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+    };
+})();
+var RemoveCommand = /** @class */ (function (_super) {
+    __extends(RemoveCommand, _super);
+    function RemoveCommand() {
+        return _super !== null && _super.apply(this, arguments) || this;
+    }
+    RemoveCommand.prototype.execute = function (args) {
+        if (args.length < 3) {
+            return "// This line contained a remove command, but it was missing arguments.";
+        }
+        else {
+            var element = args[0];
+            var parent = args[args.length - 1];
+            if (AliasManager.getTypeAliases(parent).length > 0) {
+                parent = AliasManager.getTypeAliases(parent)[0];
+            }
+            return "".concat(parent, ".removeChild(").concat(element, ");");
+        }
+    };
+    return RemoveCommand;
 }(InCodeCommand));
 
 /**
@@ -1320,6 +1357,7 @@ var CommandExecutor = /** @class */ (function () {
         create: new CreateCommand(),
         call: new CallCommand(),
         add: new AddCommand(),
+        remove: new RemoveCommand(),
         repeat: new RepeatCommand(),
         print: new PrintCommand(),
         ask: new AskCommand(),
@@ -1355,6 +1393,5 @@ var Compiler = /** @class */ (function () {
     };
     return Compiler;
 }());
-console.log(Compiler.compile("Wenn die Taste x gedrückt wird Gib 'Hello World' in der Dialogbox aus"));
 
 export { AbstractSyntaxTreeGenerator, AliasManager, CodeGenerator, CommandExecutor, Compiler };

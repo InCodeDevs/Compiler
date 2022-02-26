@@ -19,6 +19,7 @@ var ElseCommand_1 = require("./ElseCommand");
 var WaitCommand_1 = require("./WaitCommand");
 var SetCommand_1 = require("./SetCommand");
 var CommentCommand_1 = require("./CommentCommand");
+var RemoveCommand_1 = require("./RemoveCommand");
 var CommandExecutor = /** @class */ (function () {
     function CommandExecutor() {
     }
@@ -58,6 +59,7 @@ var CommandExecutor = /** @class */ (function () {
         create: new CreateCommand_1.CreateCommand(),
         call: new CallCommand_1.CallCommand(),
         add: new AddCommand_1.AddCommand(),
+        remove: new RemoveCommand_1.RemoveCommand(),
         repeat: new RepeatCommand_1.RepeatCommand(),
         print: new PrintCommand_1.PrintCommand(),
         ask: new AskCommand_1.AskCommand(),

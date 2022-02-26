@@ -31,5 +31,4 @@ var Compiler = /** @class */ (function () {
     return Compiler;
 }());
 exports.Compiler = Compiler;
-console.log(Compiler.compile("Wenn die Taste x gedrückt wird Gib 'Hello World' in der Dialogbox aus"));
 //# sourceMappingURL=Compiler.js.map

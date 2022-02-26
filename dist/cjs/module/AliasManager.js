@@ -39,6 +39,7 @@ var AliasManager = /** @class */ (function () {
         ["create", "erstelle", "definiere", "define", "➕"],
         ["call", "execute", "rufe"],
         ["add", "füge"],
+        ["remove", "entferne"],
         ["repeat", "wiederhole", "🔁"],
         ["print", "gib"],
         ["ask", "frage", "❓"],

@@ -19,6 +19,7 @@ import { ElseCommand } from "./ElseCommand";
 import { WaitCommand } from "./WaitCommand";
 import { SetCommand } from "./SetCommand";
 import { CommentCommand } from "./CommentCommand";
+import { RemoveCommand } from "./RemoveCommand";
 
 export class CommandExecutor {
   public static readonly COMMANDS: {
@@ -29,6 +30,7 @@ export class CommandExecutor {
     create: new CreateCommand(),
     call: new CallCommand(),
     add: new AddCommand(),
+    remove: new RemoveCommand(),
     repeat: new RepeatCommand(),
     print: new PrintCommand(),
     ask: new AskCommand(),
