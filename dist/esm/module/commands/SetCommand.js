@@ -582,6 +582,18 @@ var SetCommand = /** @class */ (function (_super) {
             append: "",
             values: SetCommand.colors,
         },
+        {
+            name: "display",
+            aliases: ["display", "sichtbarkeit"],
+            type: "style",
+            append: "",
+            values: [
+                {
+                    name: "none",
+                    aliases: ["invisible", "unsichtbar"],
+                },
+            ],
+        },
     ];
     return SetCommand;
 }(InCodeCommand));

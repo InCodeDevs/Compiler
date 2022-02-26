@@ -31,16 +31,32 @@ var CodeGenerator = /** @class */ (function () {
     return CodeGenerator;
 }());
 
+/**
+ * @author Ben Siebert <ben@mctzock.de>
+ * @copyright (c) 2018-2021 Ben Siebert. All rights reserved.
+ */
+var PreCompiler = /** @class */ (function () {
+    function PreCompiler() {
+    }
+    PreCompiler.preCompile = function (source) {
+        source = source.replace(/ {2}/g, "");
+        source = source.replace(/\r/g, "");
+        return source;
+    };
+    return PreCompiler;
+}());
+
 var AbstractSyntaxTreeGenerator = /** @class */ (function () {
     function AbstractSyntaxTreeGenerator() {
     }
     AbstractSyntaxTreeGenerator.generate = function (source) {
+        source = PreCompiler.preCompile(source);
         var lines = source.split("\n");
         if (lines.length === 0) {
             return [];
         }
         var words = this.splitWords(source);
-        var result = [];
+        var result;
         var temp = [];
         words.forEach(function (wordList) {
             if (wordList.length === 0) {
@@ -165,7 +181,6 @@ var AliasManager = /** @class */ (function () {
         ["h4", "heading4", "überschrift4"],
         ["h5", "heading5", "überschrift5"],
         ["h6", "heading6", "überschrift6"],
-        // ["input", "inputfield", "eingabefeld"],
         ["table", "tabelle"],
         ["tr", "row", "zeile"],
         ["tb", "column", "spalte"],
@@ -1212,6 +1227,18 @@ var SetCommand = /** @class */ (function (_super) {
             append: "",
             values: SetCommand.colors,
         },
+        {
+            name: "display",
+            aliases: ["display", "sichtbarkeit"],
+            type: "style",
+            append: "",
+            values: [
+                {
+                    name: "none",
+                    aliases: ["invisible", "unsichtbar"],
+                },
+            ],
+        },
     ];
     return SetCommand;
 }(InCodeCommand));
@@ -1301,6 +1328,9 @@ var Compiler = /** @class */ (function () {
     }
     Compiler.compile = function (source, comments // @TODO: implement
     ) {
+        if (typeof source === "string") {
+            source = PreCompiler.preCompile(source);
+        }
         var ast = [];
         if (typeof source === "string") {
             ast = AbstractSyntaxTreeGenerator.generate(source);

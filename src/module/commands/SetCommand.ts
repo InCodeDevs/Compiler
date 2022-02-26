@@ -521,6 +521,18 @@ export class SetCommand extends InCodeCommand {
       append: "",
       values: SetCommand.colors,
     },
+    {
+      name: "display",
+      aliases: ["display", "sichtbarkeit"],
+      type: "style",
+      append: "",
+      values: [
+        {
+          name: "none",
+          aliases: ["invisible", "unsichtbar"],
+        },
+      ],
+    },
   ];
 
   public execute(args: string[]): string {

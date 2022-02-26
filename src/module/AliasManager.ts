@@ -30,7 +30,6 @@ export class AliasManager {
     ["h4", "heading4", "überschrift4"],
     ["h5", "heading5", "überschrift5"],
     ["h6", "heading6", "überschrift6"],
-    // ["input", "inputfield", "eingabefeld"],
     ["table", "tabelle"],
     ["tr", "row", "zeile"],
     ["tb", "column", "spalte"],

@@ -1,16 +1,18 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.AbstractSyntaxTreeGenerator = void 0;
+var PreCompiler_1 = require("../util/PreCompiler");
 var AbstractSyntaxTreeGenerator = /** @class */ (function () {
     function AbstractSyntaxTreeGenerator() {
     }
     AbstractSyntaxTreeGenerator.generate = function (source) {
+        source = PreCompiler_1.PreCompiler.preCompile(source);
         var lines = source.split("\n");
         if (lines.length === 0) {
             return [];
         }
         var words = this.splitWords(source);
-        var result = [];
+        var result;
         var temp = [];
         words.forEach(function (wordList) {
             if (wordList.length === 0) {

@@ -9,6 +9,6 @@ test("Remove Whitespaces", function () {
     expect(PreCompiler_1.PreCompiler.preCompile("W  hitespaces")).toBe("Whitespaces");
 });
 test("Remove Escape Characters", function () {
-    expect(PreCompiler_1.PreCompiler.preCompile("\n\r")).toBe("");
+    expect(PreCompiler_1.PreCompiler.preCompile("\r")).toBe("");
 });
 //# sourceMappingURL=PreCompiler.test.js.map

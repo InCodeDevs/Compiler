@@ -7,7 +7,6 @@ var PreCompiler = /** @class */ (function () {
     }
     PreCompiler.preCompile = function (source) {
         source = source.replace(/ {2}/g, "");
-        source = source.replace(/\n/g, "");
         source = source.replace(/\r/g, "");
         return source;
     };

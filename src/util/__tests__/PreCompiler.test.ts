@@ -10,5 +10,5 @@ test("Remove Whitespaces", () => {
 });
 
 test("Remove Escape Characters", () => {
-  expect(PreCompiler.preCompile("\n\r")).toBe("");
+  expect(PreCompiler.preCompile("\r")).toBe("");
 });

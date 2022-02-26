@@ -1,12 +1,16 @@
 import { AbstractSyntaxTreeGenerator } from "./AbstractSyntaxTreeGenerator";
 import { CommandExecutor } from "./commands/CommandExecutor";
 import { js_beautify as beautify } from "js-beautify";
+import { PreCompiler } from "../util/PreCompiler";
 var Compiler = /** @class */ (function () {
     function Compiler() {
     }
     Compiler.compile = function (source, comments // @TODO: implement
     ) {
         if (comments === void 0) { comments = false; }
+        if (typeof source === "string") {
+            source = PreCompiler.preCompile(source);
+        }
         var ast = [];
         if (typeof source === "string") {
             ast = AbstractSyntaxTreeGenerator.generate(source);

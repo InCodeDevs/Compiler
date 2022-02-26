@@ -1,13 +1,15 @@
+import { PreCompiler } from "../util/PreCompiler";
 var AbstractSyntaxTreeGenerator = /** @class */ (function () {
     function AbstractSyntaxTreeGenerator() {
     }
     AbstractSyntaxTreeGenerator.generate = function (source) {
+        source = PreCompiler.preCompile(source);
         var lines = source.split("\n");
         if (lines.length === 0) {
             return [];
         }
         var words = this.splitWords(source);
-        var result = [];
+        var result;
         var temp = [];
         words.forEach(function (wordList) {
             if (wordList.length === 0) {

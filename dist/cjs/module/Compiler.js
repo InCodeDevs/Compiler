@@ -4,12 +4,16 @@ exports.Compiler = void 0;
 var AbstractSyntaxTreeGenerator_1 = require("./AbstractSyntaxTreeGenerator");
 var CommandExecutor_1 = require("./commands/CommandExecutor");
 var js_beautify_1 = require("js-beautify");
+var PreCompiler_1 = require("../util/PreCompiler");
 var Compiler = /** @class */ (function () {
     function Compiler() {
     }
     Compiler.compile = function (source, comments // @TODO: implement
     ) {
         if (comments === void 0) { comments = false; }
+        if (typeof source === "string") {
+            source = PreCompiler_1.PreCompiler.preCompile(source);
+        }
         var ast = [];
         if (typeof source === "string") {
             ast = AbstractSyntaxTreeGenerator_1.AbstractSyntaxTreeGenerator.generate(source);
