@@ -9,10 +9,7 @@ import { js_beautify as beautify } from "js-beautify";
 import { PreCompiler } from "../util/PreCompiler";
 
 export class Compiler {
-  public static compile(
-    source: string | AbstractSyntaxTree[],
-    comments: boolean = false // @TODO: implement
-  ): string {
+  public static compile(source: string | AbstractSyntaxTree[]): string {
     if (typeof source === "string") {
       source = PreCompiler.preCompile(source);
     }

@@ -18,6 +18,7 @@ var __extends = (this && this.__extends) || (function () {
  * @copyright (c) 2018-2021 Ben Siebert. All rights reserved.
  */
 import { InCodeCommand } from "./InCodeCommand";
+import { Error } from "../Error";
 var CallCommand = /** @class */ (function (_super) {
     __extends(CallCommand, _super);
     function CallCommand() {
@@ -25,10 +26,10 @@ var CallCommand = /** @class */ (function (_super) {
     }
     CallCommand.prototype.execute = function (args) {
         if (args.length < 1) {
-            return "// This line contained a call command, but it was missing arguments.";
+            return Error.ERROR_MISSING_PARAMETER;
         }
         else {
-            return "window.incode.".concat(args[0], "();");
+            return "// Diese Zeile ruft die Funktion ".concat(args[0], " auf\nwindow.incode.").concat(args[0], "();");
         }
     };
     return CallCommand;

@@ -4,18 +4,21 @@
  */
 import { AliasManager } from "../AliasManager";
 import { InCodeCommand } from "./InCodeCommand";
+import { Compiler } from "../Compiler";
+import { Error } from "../Error";
 
 export class AddCommand extends InCodeCommand {
   public execute(args: string[]): string {
     if (args.length < 4) {
-      return "// This line contained an add command, but it was missing arguments.";
+      return Error.ERROR_MISSING_PARAMETER;
     } else {
       const element = args[0];
       let parent = args[args.length - 2];
       if (AliasManager.getTypeAliases(parent).length > 0) {
         parent = AliasManager.getTypeAliases(parent)[0];
       }
-      return `${parent}.appendChild(${element});`;
+
+      return `// Diese Zeile fügt das Element ${element} zu dem Element ${parent} hinzu.\n${parent}.appendChild(${element});`;
     }
   }
 }

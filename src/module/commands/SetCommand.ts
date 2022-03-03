@@ -4,6 +4,7 @@
  */
 import { InCodeCommand } from "./InCodeCommand";
 import { AliasManager } from "../AliasManager";
+import { Error } from "../Error";
 
 export class SetCommand extends InCodeCommand {
   public static readonly colors = [
@@ -536,10 +537,8 @@ export class SetCommand extends InCodeCommand {
   ];
 
   public execute(args: string[]): string {
-    // Setze <pronomen> <Eigenschaft> <präposition> <variable> auf <Wert>
-    // Set <pronoun> <property> <preposition> <variable> to <value>
     if (args.length < 3) {
-      return "// This line contained a set command, but it was missing arguments.";
+      return Error.ERROR_MISSING_PARAMETER;
     } else {
       const property = args[1];
       const value = args[5].replace(/\u0000/g, " ");
@@ -582,15 +581,15 @@ export class SetCommand extends InCodeCommand {
           }
         }
         if (obj.type === "style") {
-          return `${variable}.style.${obj.name} = "${v}${obj.append}";`;
+          return `// Diese Zeile setzt eine Eigenschaft der Variable ${variable}\n${variable}.style.${obj.name} = "${v}${obj.append}";`;
         } else if (obj.type === "attribute") {
-          return `${variable}.${obj.name} = ${v}${obj.append};`;
+          return `// Diese Zeile setzt den Wert der Variable ${variable}\n${variable}.${obj.name} = ${v}${obj.append};`;
         }
       } else {
-        return "// This line contained a set command, but the property was not recognized.";
+        return Error.ERROR_UNKNOWN_TYPE;
       }
 
-      return `${variable}.${property} = ${value};`;
+      return `// Diese Zeile setzt eine Eigenschaft der Variable ${variable}\n${variable}.${property} = ${value};`;
     }
   }
 }

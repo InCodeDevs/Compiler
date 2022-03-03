@@ -22,6 +22,7 @@ exports.AddCommand = void 0;
  */
 var AliasManager_1 = require("../AliasManager");
 var InCodeCommand_1 = require("./InCodeCommand");
+var Error_1 = require("../Error");
 var AddCommand = /** @class */ (function (_super) {
     __extends(AddCommand, _super);
     function AddCommand() {
@@ -29,7 +30,7 @@ var AddCommand = /** @class */ (function (_super) {
     }
     AddCommand.prototype.execute = function (args) {
         if (args.length < 4) {
-            return "// This line contained an add command, but it was missing arguments.";
+            return Error_1.Error.ERROR_MISSING_PARAMETER;
         }
         else {
             var element = args[0];
@@ -37,7 +38,7 @@ var AddCommand = /** @class */ (function (_super) {
             if (AliasManager_1.AliasManager.getTypeAliases(parent).length > 0) {
                 parent = AliasManager_1.AliasManager.getTypeAliases(parent)[0];
             }
-            return "".concat(parent, ".appendChild(").concat(element, ");");
+            return "// Diese Zeile f\u00FCgt das Element ".concat(element, " zu dem Element ").concat(parent, " hinzu.\n").concat(parent, ".appendChild(").concat(element, ");");
         }
     };
     return AddCommand;

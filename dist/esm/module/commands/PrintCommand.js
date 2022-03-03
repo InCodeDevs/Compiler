@@ -19,6 +19,7 @@ var __extends = (this && this.__extends) || (function () {
  */
 import { AliasManager } from "../AliasManager";
 import { InCodeCommand } from "./InCodeCommand";
+import { Error } from "../Error";
 var PrintCommand = /** @class */ (function (_super) {
     __extends(PrintCommand, _super);
     function PrintCommand() {
@@ -26,14 +27,14 @@ var PrintCommand = /** @class */ (function (_super) {
     }
     PrintCommand.prototype.execute = function (args) {
         if (args.length < 4) {
-            return "// This line contained a print command, but it was missing arguments.";
+            return Error.ERROR_MISSING_PARAMETER;
         }
         else {
             if (AliasManager.getTypeAliases(args[3]).length > 0) {
-                return "".concat(AliasManager.getTypeAliases(args[3])[0], "(").concat(args[0].replace(/\u0000/g, " "), ");");
+                return "// Diese Zeile gibt den angegebenen Text in der ".concat(args[3], " aus\n").concat(AliasManager.getTypeAliases(args[3])[0], "(").concat(args[0].replace(/\u0000/g, " "), ");");
             }
             else {
-                return "// This line contained a print command, but the type was not recognized.";
+                return Error.ERROR_UNKNOWN_TYPE;
             }
         }
     };

@@ -80,12 +80,12 @@ var IfCommand = /** @class */ (function (_super) {
                     event = AliasManager_1.AliasManager.getEventAliases(args[2])[0];
                     eventPosition = 2;
                 }
-                return "".concat(first, ".addEventListener(\"").concat(event, "\", () => {\n  ").concat(CommandExecutor_1.CommandExecutor.executeCommand(command).split("\n")[0], "\n});");
+                return "".concat(first, ".addEventListener(\"").concat(event, "\", () => {\n  ").concat(CommandExecutor_1.CommandExecutor.executeCommand(command), "\n});");
             }
             else if (AliasManager_1.AliasManager.getTypeAliases(args[1]).length > 0 &&
                 AliasManager_1.AliasManager.getTypeAliases(args[1])[0] === "key") {
                 var command = args.slice(5).join(" ");
-                return "document.addEventListener(\"keydown\", (e) => {\n  if (e.key === \"".concat(args[2], "\") {\n    ").concat(CommandExecutor_1.CommandExecutor.executeCommand(command).split("\n")[0], "\n  }\n});");
+                return "document.addEventListener(\"keydown\", (e) => {\n  if (e.key === \"".concat(args[2], "\") {\n    ").concat(CommandExecutor_1.CommandExecutor.executeCommand(command), "\n  }\n});");
             }
         }
         return "";

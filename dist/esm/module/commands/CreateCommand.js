@@ -19,6 +19,7 @@ var __extends = (this && this.__extends) || (function () {
  */
 import { AliasManager } from "../AliasManager";
 import { InCodeCommand } from "./InCodeCommand";
+import { Error } from "../Error";
 var CreateCommand = /** @class */ (function (_super) {
     __extends(CreateCommand, _super);
     function CreateCommand() {
@@ -26,20 +27,20 @@ var CreateCommand = /** @class */ (function (_super) {
     }
     CreateCommand.prototype.execute = function (args) {
         if (args.length < 1) {
-            return "// This line contained a create command, but no arguments were provided.";
+            return Error.ERROR_MISSING_PARAMETER;
         }
         if (args.length === 1) {
-            return "let ".concat(args[0], ";");
+            return "// Diese Zeile erstellt die Variable ".concat(args[0], "\nlet ").concat(args[0], ";");
         }
         else {
             if (AliasManager.getTypeAliases(args[2]).length > 0) {
                 if (AliasManager.getTypeAliases(args[2])[0] === "function") {
-                    return "window.incode.".concat(args[0], " = () =>");
+                    return "// Diese Zeile erstellt die Funktion ".concat(args[0], "\nwindow.incode.").concat(args[0], " = () =>");
                 }
-                return "let ".concat(args[0], " = document.createElement('").concat(AliasManager.getTypeAliases(args[2])[0], "');");
+                return "// Diese Zeile erstellt die Variable ".concat(args[0], " mit dem Typen ").concat(args[2], "\nlet ").concat(args[0], " = document.createElement('").concat(AliasManager.getTypeAliases(args[2])[0], "');");
             }
             else {
-                return "let ".concat(args[0], " = document.createElement(\"div\"); // \"").concat(args[2], "\" -> Not Found");
+                return "// Diese Zeile erstellt die Variable ".concat(args[0], " mit dem Typen div, da der eigentliche Typ nicht gefunden wurde\nlet ").concat(args[0], " = document.createElement(\"div\"); // \"").concat(args[2], "\" -> Not Found");
             }
         }
     };

@@ -4,24 +4,27 @@
  */
 import { AliasManager } from "../AliasManager";
 import { InCodeCommand } from "./InCodeCommand";
+import { Error } from "../Error";
 
 export class CreateCommand extends InCodeCommand {
   public execute(args: string[]): string {
     if (args.length < 1) {
-      return "// This line contained a create command, but no arguments were provided.";
+      return Error.ERROR_MISSING_PARAMETER;
     }
     if (args.length === 1) {
-      return `let ${args[0]};`;
+      return `// Diese Zeile erstellt die Variable ${args[0]}\nlet ${args[0]};`;
     } else {
       if (AliasManager.getTypeAliases(args[2]).length > 0) {
         if (AliasManager.getTypeAliases(args[2])[0] === "function") {
-          return `window.incode.${args[0]} = () =>`;
+          return `// Diese Zeile erstellt die Funktion ${args[0]}\nwindow.incode.${args[0]} = () =>`;
         }
-        return `let ${args[0]} = document.createElement('${
+        return `// Diese Zeile erstellt die Variable ${args[0]} mit dem Typen ${
+          args[2]
+        }\nlet ${args[0]} = document.createElement('${
           AliasManager.getTypeAliases(args[2])[0]
         }');`;
       } else {
-        return `let ${args[0]} = document.createElement("div"); // "${args[2]}" -> Not Found`;
+        return `// Diese Zeile erstellt die Variable ${args[0]} mit dem Typen div, da der eigentliche Typ nicht gefunden wurde\nlet ${args[0]} = document.createElement("div"); // "${args[2]}" -> Not Found`;
       }
     }
   }

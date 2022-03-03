@@ -4,5 +4,5 @@
  */
 import { AbstractSyntaxTree } from "../types/AbstractSyntaxTree";
 export declare class Compiler {
-    static compile(source: string | AbstractSyntaxTree[], comments?: boolean): string;
+    static compile(source: string | AbstractSyntaxTree[]): string;
 }

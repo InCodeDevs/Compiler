@@ -278,6 +278,20 @@ var JSCommand = /** @class */ (function (_super) {
     return JSCommand;
 }(InCodeCommand));
 
+/**
+ * @author Ben Siebert <ben@mctzock.de>
+ * @copyright (c) 2018-2021 Ben Siebert. All rights reserved.
+ */
+var Error = /** @class */ (function () {
+    function Error() {
+    }
+    Error.ERROR_MISSING_PARAMETER = "// FEHLER: Diese Zeile enthielt zu wenige Parameter.";
+    Error.ERROR_UNKNOWN_TYPE = "// FEHLER: Diese Zeile enthielt einen unbekannten Typ.";
+    Error.ERROR_UNKNOWN_OPERATOR = "// FEHLER: Diese Zeile enthielt einen unbekannten Operator.";
+    Error.ERROR_NOT_A_NUMBER = "// FEHLER: Diese Zeile enthielt keine Zahl.";
+    return Error;
+}());
+
 var __extends$b = (undefined && undefined.__extends) || (function () {
     var extendStatics = function (d, b) {
         extendStatics = Object.setPrototypeOf ||
@@ -300,20 +314,20 @@ var CreateCommand = /** @class */ (function (_super) {
     }
     CreateCommand.prototype.execute = function (args) {
         if (args.length < 1) {
-            return "// This line contained a create command, but no arguments were provided.";
+            return Error.ERROR_MISSING_PARAMETER;
         }
         if (args.length === 1) {
-            return "let ".concat(args[0], ";");
+            return "// Diese Zeile erstellt die Variable ".concat(args[0], "\nlet ").concat(args[0], ";");
         }
         else {
             if (AliasManager.getTypeAliases(args[2]).length > 0) {
                 if (AliasManager.getTypeAliases(args[2])[0] === "function") {
-                    return "window.incode.".concat(args[0], " = () =>");
+                    return "// Diese Zeile erstellt die Funktion ".concat(args[0], "\nwindow.incode.").concat(args[0], " = () =>");
                 }
-                return "let ".concat(args[0], " = document.createElement('").concat(AliasManager.getTypeAliases(args[2])[0], "');");
+                return "// Diese Zeile erstellt die Variable ".concat(args[0], " mit dem Typen ").concat(args[2], "\nlet ").concat(args[0], " = document.createElement('").concat(AliasManager.getTypeAliases(args[2])[0], "');");
             }
             else {
-                return "let ".concat(args[0], " = document.createElement(\"div\"); // \"").concat(args[2], "\" -> Not Found");
+                return "// Diese Zeile erstellt die Variable ".concat(args[0], " mit dem Typen div, da der eigentliche Typ nicht gefunden wurde\nlet ").concat(args[0], " = document.createElement(\"div\"); // \"").concat(args[2], "\" -> Not Found");
             }
         }
     };
@@ -342,10 +356,10 @@ var CallCommand = /** @class */ (function (_super) {
     }
     CallCommand.prototype.execute = function (args) {
         if (args.length < 1) {
-            return "// This line contained a call command, but it was missing arguments.";
+            return Error.ERROR_MISSING_PARAMETER;
         }
         else {
-            return "window.incode.".concat(args[0], "();");
+            return "// Diese Zeile ruft die Funktion ".concat(args[0], " auf\nwindow.incode.").concat(args[0], "();");
         }
     };
     return CallCommand;
@@ -373,7 +387,7 @@ var AddCommand = /** @class */ (function (_super) {
     }
     AddCommand.prototype.execute = function (args) {
         if (args.length < 4) {
-            return "// This line contained an add command, but it was missing arguments.";
+            return Error.ERROR_MISSING_PARAMETER;
         }
         else {
             var element = args[0];
@@ -381,7 +395,7 @@ var AddCommand = /** @class */ (function (_super) {
             if (AliasManager.getTypeAliases(parent).length > 0) {
                 parent = AliasManager.getTypeAliases(parent)[0];
             }
-            return "".concat(parent, ".appendChild(").concat(element, ");");
+            return "// Diese Zeile f\u00FCgt das Element ".concat(element, " zu dem Element ").concat(parent, " hinzu.\n").concat(parent, ".appendChild(").concat(element, ");");
         }
     };
     return AddCommand;
@@ -409,22 +423,22 @@ var RepeatCommand = /** @class */ (function (_super) {
     }
     RepeatCommand.prototype.execute = function (args) {
         if (args.length < 2) {
-            return "// This line contained a repeat command, but it was missing arguments.";
+            return Error.ERROR_MISSING_PARAMETER;
         }
         else {
             if (args.length === 2) {
-                return "for (let i = 0; i < ".concat(args[0], "; i++)");
+                return "// Diese Zeile wiederholt die darunter stehenden Instruktionen ".concat(args[0], " mal\nfor (let i = 0; i < ").concat(args[0], "; i++)");
             }
             else if (args.length === 6) {
                 if (AliasManager.getOperatorAliases(args[2]).length > 0) {
-                    return "while(".concat(args[1], " ").concat(AliasManager.getOperatorAliases(args[2])[0], " ").concat(args[4], ")");
+                    return "// Diese Zeile wiederholt die darunter stehenden Instruktionen solange die Variable ".concat(args[1], " ").concat(args[2], " der Variable ").concat(args[4], " ist\nwhile(").concat(args[1], " ").concat(AliasManager.getOperatorAliases(args[2])[0], " ").concat(args[4], ")");
                 }
                 else {
-                    return "// This line contained a repeat command, but the operator was not recognized.";
+                    return Error.ERROR_UNKNOWN_OPERATOR;
                 }
             }
             else {
-                return "// This line contained a repeat command, but it had too many arguments.";
+                return Error.ERROR_MISSING_PARAMETER;
             }
         }
     };
@@ -453,14 +467,14 @@ var PrintCommand = /** @class */ (function (_super) {
     }
     PrintCommand.prototype.execute = function (args) {
         if (args.length < 4) {
-            return "// This line contained a print command, but it was missing arguments.";
+            return Error.ERROR_MISSING_PARAMETER;
         }
         else {
             if (AliasManager.getTypeAliases(args[3]).length > 0) {
-                return "".concat(AliasManager.getTypeAliases(args[3])[0], "(").concat(args[0].replace(/\u0000/g, " "), ");");
+                return "// Diese Zeile gibt den angegebenen Text in der ".concat(args[3], " aus\n").concat(AliasManager.getTypeAliases(args[3])[0], "(").concat(args[0].replace(/\u0000/g, " "), ");");
             }
             else {
-                return "// This line contained a print command, but the type was not recognized.";
+                return Error.ERROR_UNKNOWN_TYPE;
             }
         }
     };
@@ -493,15 +507,15 @@ var AskCommand = /** @class */ (function (_super) {
     }
     AskCommand.prototype.execute = function (args) {
         if (args.length === 0) {
-            return "// This line contained a print command, but it was missing arguments.";
+            return Error.ERROR_MISSING_PARAMETER;
         }
         else {
             args[0] = args[0].replace(/\u0000/g, " ");
             if (args.length === 1) {
-                return "prompt(".concat(args[0], ");");
+                return "// Diese Zeile fragt den Benutzer \"".concat(args[0], "\"\nprompt(").concat(args[0], ");");
             }
             else {
-                return "let ".concat(args[args.length - 1], " = prompt(").concat(args[0], ");");
+                return "// Diese Zeile fragt den Benutzer \"".concat(args[0], "\" und speichert die Antwort in ").concat(args[args.length - 1], "\nlet ").concat(args[args.length - 1], " = prompt(").concat(args[0], ");");
             }
         }
     };
@@ -577,12 +591,12 @@ var IfCommand = /** @class */ (function (_super) {
                 else {
                     event = AliasManager.getEventAliases(args[2])[0];
                 }
-                return "".concat(first, ".addEventListener(\"").concat(event, "\", () => {\n  ").concat(CommandExecutor.executeCommand(command).split("\n")[0], "\n});");
+                return "".concat(first, ".addEventListener(\"").concat(event, "\", () => {\n  ").concat(CommandExecutor.executeCommand(command), "\n});");
             }
             else if (AliasManager.getTypeAliases(args[1]).length > 0 &&
                 AliasManager.getTypeAliases(args[1])[0] === "key") {
                 var command = args.slice(5).join(" ");
-                return "document.addEventListener(\"keydown\", (e) => {\n  if (e.key === \"".concat(args[2], "\") {\n    ").concat(CommandExecutor.executeCommand(command).split("\n")[0], "\n  }\n});");
+                return "document.addEventListener(\"keydown\", (e) => {\n  if (e.key === \"".concat(args[2], "\") {\n    ").concat(CommandExecutor.executeCommand(command), "\n  }\n});");
             }
         }
         return "";
@@ -643,14 +657,14 @@ var WaitCommand = /** @class */ (function (_super) {
     }
     WaitCommand.prototype.execute = function (args) {
         if (args.length < 1) {
-            return "// This line contained a wait command, but it was missing arguments.";
+            return Error.ERROR_MISSING_PARAMETER;
         }
         else {
             if (!parseFloat(args[0])) {
-                return "// This line contained a wait command, but the given time was not a number.";
+                return Error.ERROR_NOT_A_NUMBER;
             }
             else {
-                return "await new Promise(done => setTimeout(() => done(), ".concat(args[0], "000))");
+                return "// Diese Zeile wartet ".concat(args[0], "000 Millisekunden\nawait new Promise(done => setTimeout(() => done(), ").concat(args[0], "000))");
             }
         }
     };
@@ -678,10 +692,8 @@ var SetCommand = /** @class */ (function (_super) {
         return _super !== null && _super.apply(this, arguments) || this;
     }
     SetCommand.prototype.execute = function (args) {
-        // Setze <pronomen> <Eigenschaft> <präposition> <variable> auf <Wert>
-        // Set <pronoun> <property> <preposition> <variable> to <value>
         if (args.length < 3) {
-            return "// This line contained a set command, but it was missing arguments.";
+            return Error.ERROR_MISSING_PARAMETER;
         }
         else {
             var property = args[1];
@@ -710,16 +722,16 @@ var SetCommand = /** @class */ (function (_super) {
                     }
                 }
                 if (obj.type === "style") {
-                    return "".concat(variable, ".style.").concat(obj.name, " = \"").concat(v).concat(obj.append, "\";");
+                    return "// Diese Zeile setzt eine Eigenschaft der Variable ".concat(variable, "\n").concat(variable, ".style.").concat(obj.name, " = \"").concat(v).concat(obj.append, "\";");
                 }
                 else if (obj.type === "attribute") {
-                    return "".concat(variable, ".").concat(obj.name, " = ").concat(v).concat(obj.append, ";");
+                    return "// Diese Zeile setzt den Wert der Variable ".concat(variable, "\n").concat(variable, ".").concat(obj.name, " = ").concat(v).concat(obj.append, ";");
                 }
             }
             else {
-                return "// This line contained a set command, but the property was not recognized.";
+                return Error.ERROR_UNKNOWN_TYPE;
             }
-            return "".concat(variable, ".").concat(property, " = ").concat(value, ";");
+            return "// Diese Zeile setzt eine Eigenschaft der Variable ".concat(variable, "\n").concat(variable, ".").concat(property, " = ").concat(value, ";");
         }
     };
     SetCommand.colors = [
@@ -1300,7 +1312,7 @@ var RemoveCommand = /** @class */ (function (_super) {
     }
     RemoveCommand.prototype.execute = function (args) {
         if (args.length < 3) {
-            return "// This line contained a remove command, but it was missing arguments.";
+            return Error.ERROR_MISSING_PARAMETER;
         }
         else {
             var element = args[0];
@@ -1308,7 +1320,7 @@ var RemoveCommand = /** @class */ (function (_super) {
             if (AliasManager.getTypeAliases(parent).length > 0) {
                 parent = AliasManager.getTypeAliases(parent)[0];
             }
-            return "".concat(parent, ".removeChild(").concat(element, ");");
+            return "// Diese Zeile entfernt das Element ".concat(element, " von dem Element ").concat(parent, "\n").concat(parent, ".removeChild(").concat(element, ");");
         }
     };
     return RemoveCommand;
@@ -1372,8 +1384,7 @@ var CommandExecutor = /** @class */ (function () {
 var Compiler = /** @class */ (function () {
     function Compiler() {
     }
-    Compiler.compile = function (source, comments // @TODO: implement
-    ) {
+    Compiler.compile = function (source) {
         if (typeof source === "string") {
             source = PreCompiler.preCompile(source);
         }

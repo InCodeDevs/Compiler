@@ -22,6 +22,7 @@ exports.RemoveCommand = void 0;
  */
 var AliasManager_1 = require("../AliasManager");
 var InCodeCommand_1 = require("./InCodeCommand");
+var Error_1 = require("../Error");
 var RemoveCommand = /** @class */ (function (_super) {
     __extends(RemoveCommand, _super);
     function RemoveCommand() {
@@ -29,7 +30,7 @@ var RemoveCommand = /** @class */ (function (_super) {
     }
     RemoveCommand.prototype.execute = function (args) {
         if (args.length < 3) {
-            return "// This line contained a remove command, but it was missing arguments.";
+            return Error_1.Error.ERROR_MISSING_PARAMETER;
         }
         else {
             var element = args[0];
@@ -37,7 +38,7 @@ var RemoveCommand = /** @class */ (function (_super) {
             if (AliasManager_1.AliasManager.getTypeAliases(parent).length > 0) {
                 parent = AliasManager_1.AliasManager.getTypeAliases(parent)[0];
             }
-            return "".concat(parent, ".removeChild(").concat(element, ");");
+            return "// Diese Zeile entfernt das Element ".concat(element, " von dem Element ").concat(parent, "\n").concat(parent, ".removeChild(").concat(element, ");");
         }
     };
     return RemoveCommand;

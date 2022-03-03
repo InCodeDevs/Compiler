@@ -18,16 +18,15 @@ var __extends = (this && this.__extends) || (function () {
  * @copyright (c) 2018-2021 Ben Siebert. All rights reserved.
  */
 import { InCodeCommand } from "./InCodeCommand";
+import { Error } from "../Error";
 var SetCommand = /** @class */ (function (_super) {
     __extends(SetCommand, _super);
     function SetCommand() {
         return _super !== null && _super.apply(this, arguments) || this;
     }
     SetCommand.prototype.execute = function (args) {
-        // Setze <pronomen> <Eigenschaft> <präposition> <variable> auf <Wert>
-        // Set <pronoun> <property> <preposition> <variable> to <value>
         if (args.length < 3) {
-            return "// This line contained a set command, but it was missing arguments.";
+            return Error.ERROR_MISSING_PARAMETER;
         }
         else {
             var property = args[1];
@@ -56,16 +55,16 @@ var SetCommand = /** @class */ (function (_super) {
                     }
                 }
                 if (obj.type === "style") {
-                    return "".concat(variable, ".style.").concat(obj.name, " = \"").concat(v).concat(obj.append, "\";");
+                    return "// Diese Zeile setzt eine Eigenschaft der Variable ".concat(variable, "\n").concat(variable, ".style.").concat(obj.name, " = \"").concat(v).concat(obj.append, "\";");
                 }
                 else if (obj.type === "attribute") {
-                    return "".concat(variable, ".").concat(obj.name, " = ").concat(v).concat(obj.append, ";");
+                    return "// Diese Zeile setzt den Wert der Variable ".concat(variable, "\n").concat(variable, ".").concat(obj.name, " = ").concat(v).concat(obj.append, ";");
                 }
             }
             else {
-                return "// This line contained a set command, but the property was not recognized.";
+                return Error.ERROR_UNKNOWN_TYPE;
             }
-            return "".concat(variable, ".").concat(property, " = ").concat(value, ";");
+            return "// Diese Zeile setzt eine Eigenschaft der Variable ".concat(variable, "\n").concat(variable, ".").concat(property, " = ").concat(value, ";");
         }
     };
     SetCommand.colors = [

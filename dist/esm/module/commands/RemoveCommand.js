@@ -19,6 +19,7 @@ var __extends = (this && this.__extends) || (function () {
  */
 import { AliasManager } from "../AliasManager";
 import { InCodeCommand } from "./InCodeCommand";
+import { Error } from "../Error";
 var RemoveCommand = /** @class */ (function (_super) {
     __extends(RemoveCommand, _super);
     function RemoveCommand() {
@@ -26,7 +27,7 @@ var RemoveCommand = /** @class */ (function (_super) {
     }
     RemoveCommand.prototype.execute = function (args) {
         if (args.length < 3) {
-            return "// This line contained a remove command, but it was missing arguments.";
+            return Error.ERROR_MISSING_PARAMETER;
         }
         else {
             var element = args[0];
@@ -34,7 +35,7 @@ var RemoveCommand = /** @class */ (function (_super) {
             if (AliasManager.getTypeAliases(parent).length > 0) {
                 parent = AliasManager.getTypeAliases(parent)[0];
             }
-            return "".concat(parent, ".removeChild(").concat(element, ");");
+            return "// Diese Zeile entfernt das Element ".concat(element, " von dem Element ").concat(parent, "\n").concat(parent, ".removeChild(").concat(element, ");");
         }
     };
     return RemoveCommand;

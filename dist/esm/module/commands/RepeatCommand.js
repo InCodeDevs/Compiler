@@ -19,6 +19,7 @@ var __extends = (this && this.__extends) || (function () {
  */
 import { AliasManager } from "../AliasManager";
 import { InCodeCommand } from "./InCodeCommand";
+import { Error } from "../Error";
 var RepeatCommand = /** @class */ (function (_super) {
     __extends(RepeatCommand, _super);
     function RepeatCommand() {
@@ -26,22 +27,22 @@ var RepeatCommand = /** @class */ (function (_super) {
     }
     RepeatCommand.prototype.execute = function (args) {
         if (args.length < 2) {
-            return "// This line contained a repeat command, but it was missing arguments.";
+            return Error.ERROR_MISSING_PARAMETER;
         }
         else {
             if (args.length === 2) {
-                return "for (let i = 0; i < ".concat(args[0], "; i++)");
+                return "// Diese Zeile wiederholt die darunter stehenden Instruktionen ".concat(args[0], " mal\nfor (let i = 0; i < ").concat(args[0], "; i++)");
             }
             else if (args.length === 6) {
                 if (AliasManager.getOperatorAliases(args[2]).length > 0) {
-                    return "while(".concat(args[1], " ").concat(AliasManager.getOperatorAliases(args[2])[0], " ").concat(args[4], ")");
+                    return "// Diese Zeile wiederholt die darunter stehenden Instruktionen solange die Variable ".concat(args[1], " ").concat(args[2], " der Variable ").concat(args[4], " ist\nwhile(").concat(args[1], " ").concat(AliasManager.getOperatorAliases(args[2])[0], " ").concat(args[4], ")");
                 }
                 else {
-                    return "// This line contained a repeat command, but the operator was not recognized.";
+                    return Error.ERROR_UNKNOWN_OPERATOR;
                 }
             }
             else {
-                return "// This line contained a repeat command, but it had too many arguments.";
+                return Error.ERROR_MISSING_PARAMETER;
             }
         }
     };

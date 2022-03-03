@@ -5,9 +5,7 @@ import { PreCompiler } from "../util/PreCompiler";
 var Compiler = /** @class */ (function () {
     function Compiler() {
     }
-    Compiler.compile = function (source, comments // @TODO: implement
-    ) {
-        if (comments === void 0) { comments = false; }
+    Compiler.compile = function (source) {
         if (typeof source === "string") {
             source = PreCompiler.preCompile(source);
         }

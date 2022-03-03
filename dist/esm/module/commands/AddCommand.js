@@ -19,6 +19,7 @@ var __extends = (this && this.__extends) || (function () {
  */
 import { AliasManager } from "../AliasManager";
 import { InCodeCommand } from "./InCodeCommand";
+import { Error } from "../Error";
 var AddCommand = /** @class */ (function (_super) {
     __extends(AddCommand, _super);
     function AddCommand() {
@@ -26,7 +27,7 @@ var AddCommand = /** @class */ (function (_super) {
     }
     AddCommand.prototype.execute = function (args) {
         if (args.length < 4) {
-            return "// This line contained an add command, but it was missing arguments.";
+            return Error.ERROR_MISSING_PARAMETER;
         }
         else {
             var element = args[0];
@@ -34,7 +35,7 @@ var AddCommand = /** @class */ (function (_super) {
             if (AliasManager.getTypeAliases(parent).length > 0) {
                 parent = AliasManager.getTypeAliases(parent)[0];
             }
-            return "".concat(parent, ".appendChild(").concat(element, ");");
+            return "// Diese Zeile f\u00FCgt das Element ".concat(element, " zu dem Element ").concat(parent, " hinzu.\n").concat(parent, ".appendChild(").concat(element, ");");
         }
     };
     return AddCommand;

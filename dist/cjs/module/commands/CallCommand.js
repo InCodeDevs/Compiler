@@ -21,6 +21,7 @@ exports.CallCommand = void 0;
  * @copyright (c) 2018-2021 Ben Siebert. All rights reserved.
  */
 var InCodeCommand_1 = require("./InCodeCommand");
+var Error_1 = require("../Error");
 var CallCommand = /** @class */ (function (_super) {
     __extends(CallCommand, _super);
     function CallCommand() {
@@ -28,10 +29,10 @@ var CallCommand = /** @class */ (function (_super) {
     }
     CallCommand.prototype.execute = function (args) {
         if (args.length < 1) {
-            return "// This line contained a call command, but it was missing arguments.";
+            return Error_1.Error.ERROR_MISSING_PARAMETER;
         }
         else {
-            return "window.incode.".concat(args[0], "();");
+            return "// Diese Zeile ruft die Funktion ".concat(args[0], " auf\nwindow.incode.").concat(args[0], "();");
         }
     };
     return CallCommand;

@@ -18,6 +18,7 @@ var __extends = (this && this.__extends) || (function () {
     };
 })();
 import { InCodeCommand } from "./InCodeCommand";
+import { Error } from "../Error";
 var AskCommand = /** @class */ (function (_super) {
     __extends(AskCommand, _super);
     function AskCommand() {
@@ -25,15 +26,15 @@ var AskCommand = /** @class */ (function (_super) {
     }
     AskCommand.prototype.execute = function (args) {
         if (args.length === 0) {
-            return "// This line contained a print command, but it was missing arguments.";
+            return Error.ERROR_MISSING_PARAMETER;
         }
         else {
             args[0] = args[0].replace(/\u0000/g, " ");
             if (args.length === 1) {
-                return "prompt(".concat(args[0], ");");
+                return "// Diese Zeile fragt den Benutzer \"".concat(args[0], "\"\nprompt(").concat(args[0], ");");
             }
             else {
-                return "let ".concat(args[args.length - 1], " = prompt(").concat(args[0], ");");
+                return "// Diese Zeile fragt den Benutzer \"".concat(args[0], "\" und speichert die Antwort in ").concat(args[args.length - 1], "\nlet ").concat(args[args.length - 1], " = prompt(").concat(args[0], ");");
             }
         }
     };

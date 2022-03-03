@@ -64,7 +64,7 @@ export class IfCommand extends InCodeCommand {
         }
 
         return `${first}.addEventListener("${event}", () => {
-  ${CommandExecutor.executeCommand(command).split("\n")[0]}
+  ${CommandExecutor.executeCommand(command)}
 });`;
       } else if (
         AliasManager.getTypeAliases(args[1]).length > 0 &&
@@ -74,7 +74,7 @@ export class IfCommand extends InCodeCommand {
 
         return `document.addEventListener("keydown", (e) => {
   if (e.key === "${args[2]}") {
-    ${CommandExecutor.executeCommand(command).split("\n")[0]}
+    ${CommandExecutor.executeCommand(command)}
   }
 });`;
       }

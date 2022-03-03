@@ -21,6 +21,7 @@ exports.WaitCommand = void 0;
  * @copyright (c) 2018-2021 Ben Siebert. All rights reserved.
  */
 var InCodeCommand_1 = require("./InCodeCommand");
+var Error_1 = require("../Error");
 var WaitCommand = /** @class */ (function (_super) {
     __extends(WaitCommand, _super);
     function WaitCommand() {
@@ -28,17 +29,16 @@ var WaitCommand = /** @class */ (function (_super) {
     }
     WaitCommand.prototype.execute = function (args) {
         if (args.length < 1) {
-            return "// This line contained a wait command, but it was missing arguments.";
+            return Error_1.Error.ERROR_MISSING_PARAMETER;
         }
         else {
             if (!parseFloat(args[0])) {
-                return "// This line contained a wait command, but the given time was not a number.";
+                return Error_1.Error.ERROR_NOT_A_NUMBER;
             }
             else {
-                return "await new Promise(done => setTimeout(() => done(), ".concat(args[0], "000))");
+                return "// Diese Zeile wartet ".concat(args[0], "000 Millisekunden\nawait new Promise(done => setTimeout(() => done(), ").concat(args[0], "000))");
             }
         }
-        return "";
     };
     return WaitCommand;
 }(InCodeCommand_1.InCodeCommand));
