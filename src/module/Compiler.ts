@@ -21,12 +21,15 @@ export class Compiler {
     let code = `/**
  * @generator InCode
  * @version 2.x
- */\n\nwindow.incode = {}\n\n`;
+ */\nwindow.incode = {};\n(async () => {\n`;
 
     ast.forEach((node) => {
       // code += "Code Comment" // TODO: implement
       code += CommandExecutor.executeCommand(node) + "\n";
     });
+    code += "\n})();";
+
+    code = code.replace(/\n\n/g, "");
 
     return beautify(code, {
       indent_char: " ",

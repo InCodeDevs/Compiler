@@ -64,9 +64,11 @@ export class CommandExecutor {
         ].execute(ast.args);
       }
     } else {
-      code += `// "${ast.command} ${ast.args.join(" ")}" -> Command ${
-        ast.command
-      } not found.`;
+      if (ast.command !== " ") {
+        code += `// "${ast.command} ${ast.args.join(" ")}" -> Der Befehl ${
+          ast.command
+        } konnte nicht gefunden werden.`;
+      }
     }
 
     if (ast.children.length > 0) {

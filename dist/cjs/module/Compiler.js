@@ -16,11 +16,13 @@ var Compiler = /** @class */ (function () {
         if (typeof source === "string") {
             ast = AbstractSyntaxTreeGenerator_1.AbstractSyntaxTreeGenerator.generate(source);
         }
-        var code = "/**\n * @generator InCode\n * @version 2.x\n */\n\nwindow.incode = {}\n\n";
+        var code = "/**\n * @generator InCode\n * @version 2.x\n */\nwindow.incode = {};\n(async () => {\n";
         ast.forEach(function (node) {
             // code += "Code Comment" // TODO: implement
             code += CommandExecutor_1.CommandExecutor.executeCommand(node) + "\n";
         });
+        code += "\n})();";
+        code = code.replace(/\n\n/g, "");
         return (0, js_beautify_1.js_beautify)(code, {
             indent_char: " ",
             indent_size: 2,

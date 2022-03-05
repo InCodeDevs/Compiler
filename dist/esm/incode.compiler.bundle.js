@@ -1348,7 +1348,9 @@ var CommandExecutor = /** @class */ (function () {
             }
         }
         else {
-            code += "// \"".concat(ast.command, " ").concat(ast.args.join(" "), "\" -> Command ").concat(ast.command, " not found.");
+            if (ast.command !== " ") {
+                code += "// \"".concat(ast.command, " ").concat(ast.args.join(" "), "\" -> Der Befehl ").concat(ast.command, " konnte nicht gefunden werden.");
+            }
         }
         if (ast.children.length > 0) {
             code += " {\n";
@@ -1392,11 +1394,13 @@ var Compiler = /** @class */ (function () {
         if (typeof source === "string") {
             ast = AbstractSyntaxTreeGenerator.generate(source);
         }
-        var code = "/**\n * @generator InCode\n * @version 2.x\n */\n\nwindow.incode = {}\n\n";
+        var code = "/**\n * @generator InCode\n * @version 2.x\n */\nwindow.incode = {};\n(async () => {\n";
         ast.forEach(function (node) {
             // code += "Code Comment" // TODO: implement
             code += CommandExecutor.executeCommand(node) + "\n";
         });
+        code += "\n})();";
+        code = code.replace(/\n\n/g, "");
         return js_beautify(code, {
             indent_char: " ",
             indent_size: 2,

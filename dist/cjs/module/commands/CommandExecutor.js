@@ -38,7 +38,9 @@ var CommandExecutor = /** @class */ (function () {
             }
         }
         else {
-            code += "// \"".concat(ast.command, " ").concat(ast.args.join(" "), "\" -> Command ").concat(ast.command, " not found.");
+            if (ast.command !== " ") {
+                code += "// \"".concat(ast.command, " ").concat(ast.args.join(" "), "\" -> Der Befehl ").concat(ast.command, " konnte nicht gefunden werden.");
+            }
         }
         if (ast.children.length > 0) {
             code += " {\n";
