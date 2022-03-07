@@ -581,12 +581,19 @@ export class SetCommand extends InCodeCommand {
           }
         }
         if (obj.type === "style") {
-          return `// Diese Zeile setzt eine Eigenschaft der Variable ${variable}\n${variable}.style.${obj.name} = "${v}${obj.append}";`;
+          return `// Diese Zeile setzt eine Eigenschaft (style) der Variable ${variable}\n${variable}.style.${obj.name} = "${v}${obj.append}";`;
         } else if (obj.type === "attribute") {
-          return `// Diese Zeile setzt den Wert der Variable ${variable}\n${variable}.${obj.name} = ${v}${obj.append};`;
+          return `// Diese Zeile setzt eine Eigenschaft der Variable ${variable}\n${variable}.${obj.name} = ${v}${obj.append};`;
         }
       } else {
-        return Error.ERROR_UNKNOWN_TYPE;
+        if (
+          AliasManager.getSpecialAliases(property).length > 0 &&
+          AliasManager.getSpecialAliases(property)[0] === "value"
+        ) {
+          return `// Diese Zeile setzt den Wert der Variable ${variable}\n${variable} = ${value};`;
+        } else {
+          return Error.ERROR_UNKNOWN_TYPE;
+        }
       }
 
       return `// Diese Zeile setzt eine Eigenschaft der Variable ${variable}\n${variable}.${property} = ${value};`;

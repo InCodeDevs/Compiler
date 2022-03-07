@@ -20,6 +20,8 @@ export class AliasManager {
     ["set", "setze"],
   ];
 
+  public static readonly SPECIAL_ALIASES = [["value", "wert"]];
+
   public static readonly TYPE_ALIASES = [
     ["button", "knopf"],
     ["p", "paragraph", "absatz"],
@@ -125,6 +127,14 @@ export class AliasManager {
     return (
       AliasManager.COLOR_PROPERTY_ALIASES.find((alias) =>
         alias.includes(colorProperty.toLowerCase())
+      ) || []
+    );
+  }
+
+  public static getSpecialAliases(special: string): string[] {
+    return (
+      AliasManager.SPECIAL_ALIASES.find((alias) =>
+        alias.includes(special.toLowerCase())
       ) || []
     );
   }

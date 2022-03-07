@@ -4,6 +4,7 @@
  */
 export declare class AliasManager {
     static readonly CMD_ALIASES: string[][];
+    static readonly SPECIAL_ALIASES: string[][];
     static readonly TYPE_ALIASES: string[][];
     static readonly OPERATOR_ALIASES: string[][];
     static readonly EVENT_ALIASES: string[][];
@@ -13,4 +14,5 @@ export declare class AliasManager {
     static getOperatorAliases(operator: string): string[];
     static getEventAliases(event: string): string[];
     static getColorPropertyAliases(colorProperty: string): string[];
+    static getSpecialAliases(special: string): string[];
 }

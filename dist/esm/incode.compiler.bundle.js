@@ -156,6 +156,11 @@ var AliasManager = /** @class */ (function () {
             return alias.includes(colorProperty.toLowerCase());
         }) || []);
     };
+    AliasManager.getSpecialAliases = function (special) {
+        return (AliasManager.SPECIAL_ALIASES.find(function (alias) {
+            return alias.includes(special.toLowerCase());
+        }) || []);
+    };
     AliasManager.CMD_ALIASES = [
         ["@", "📜"],
         ["//", "#", "📖"],
@@ -171,6 +176,7 @@ var AliasManager = /** @class */ (function () {
         ["wait", "warte", "⌛"],
         ["set", "setze"],
     ];
+    AliasManager.SPECIAL_ALIASES = [["value", "wert"]];
     AliasManager.TYPE_ALIASES = [
         ["button", "knopf"],
         ["p", "paragraph", "absatz"],
@@ -722,14 +728,20 @@ var SetCommand = /** @class */ (function (_super) {
                     }
                 }
                 if (obj.type === "style") {
-                    return "// Diese Zeile setzt eine Eigenschaft der Variable ".concat(variable, "\n").concat(variable, ".style.").concat(obj.name, " = \"").concat(v).concat(obj.append, "\";");
+                    return "// Diese Zeile setzt eine Eigenschaft (style) der Variable ".concat(variable, "\n").concat(variable, ".style.").concat(obj.name, " = \"").concat(v).concat(obj.append, "\";");
                 }
                 else if (obj.type === "attribute") {
-                    return "// Diese Zeile setzt den Wert der Variable ".concat(variable, "\n").concat(variable, ".").concat(obj.name, " = ").concat(v).concat(obj.append, ";");
+                    return "// Diese Zeile setzt eine Eigenschaft der Variable ".concat(variable, "\n").concat(variable, ".").concat(obj.name, " = ").concat(v).concat(obj.append, ";");
                 }
             }
             else {
-                return Error.ERROR_UNKNOWN_TYPE;
+                if (AliasManager.getSpecialAliases(property).length > 0 &&
+                    AliasManager.getSpecialAliases(property)[0] === "value") {
+                    return "// Diese Zeile setzt den Wert der Variable ".concat(variable, "\n").concat(variable, " = ").concat(value, ";");
+                }
+                else {
+                    return Error.ERROR_UNKNOWN_TYPE;
+                }
             }
             return "// Diese Zeile setzt eine Eigenschaft der Variable ".concat(variable, "\n").concat(variable, ".").concat(property, " = ").concat(value, ";");
         }

@@ -30,6 +30,11 @@ var AliasManager = /** @class */ (function () {
             return alias.includes(colorProperty.toLowerCase());
         }) || []);
     };
+    AliasManager.getSpecialAliases = function (special) {
+        return (AliasManager.SPECIAL_ALIASES.find(function (alias) {
+            return alias.includes(special.toLowerCase());
+        }) || []);
+    };
     AliasManager.CMD_ALIASES = [
         ["@", "📜"],
         ["//", "#", "📖"],
@@ -45,6 +50,7 @@ var AliasManager = /** @class */ (function () {
         ["wait", "warte", "⌛"],
         ["set", "setze"],
     ];
+    AliasManager.SPECIAL_ALIASES = [["value", "wert"]];
     AliasManager.TYPE_ALIASES = [
         ["button", "knopf"],
         ["p", "paragraph", "absatz"],

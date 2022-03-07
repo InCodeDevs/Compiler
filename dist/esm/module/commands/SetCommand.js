@@ -18,6 +18,7 @@ var __extends = (this && this.__extends) || (function () {
  * @copyright (c) 2018-2021 Ben Siebert. All rights reserved.
  */
 import { InCodeCommand } from "./InCodeCommand";
+import { AliasManager } from "../AliasManager";
 import { Error } from "../Error";
 var SetCommand = /** @class */ (function (_super) {
     __extends(SetCommand, _super);
@@ -55,14 +56,20 @@ var SetCommand = /** @class */ (function (_super) {
                     }
                 }
                 if (obj.type === "style") {
-                    return "// Diese Zeile setzt eine Eigenschaft der Variable ".concat(variable, "\n").concat(variable, ".style.").concat(obj.name, " = \"").concat(v).concat(obj.append, "\";");
+                    return "// Diese Zeile setzt eine Eigenschaft (style) der Variable ".concat(variable, "\n").concat(variable, ".style.").concat(obj.name, " = \"").concat(v).concat(obj.append, "\";");
                 }
                 else if (obj.type === "attribute") {
-                    return "// Diese Zeile setzt den Wert der Variable ".concat(variable, "\n").concat(variable, ".").concat(obj.name, " = ").concat(v).concat(obj.append, ";");
+                    return "// Diese Zeile setzt eine Eigenschaft der Variable ".concat(variable, "\n").concat(variable, ".").concat(obj.name, " = ").concat(v).concat(obj.append, ";");
                 }
             }
             else {
-                return Error.ERROR_UNKNOWN_TYPE;
+                if (AliasManager.getSpecialAliases(property).length > 0 &&
+                    AliasManager.getSpecialAliases(property)[0] === "value") {
+                    return "// Diese Zeile setzt den Wert der Variable ".concat(variable, "\n").concat(variable, " = ").concat(value, ";");
+                }
+                else {
+                    return Error.ERROR_UNKNOWN_TYPE;
+                }
             }
             return "// Diese Zeile setzt eine Eigenschaft der Variable ".concat(variable, "\n").concat(variable, ".").concat(property, " = ").concat(value, ";");
         }
