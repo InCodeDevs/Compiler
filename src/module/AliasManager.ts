@@ -62,9 +62,9 @@ export class AliasManager {
   ];
 
   public static readonly EVENT_ALIASES = [
-    ["onclick", "pressed", "gedrückt"],
-    ["onmouseover", "hovered", "berührt"],
-    ["onmouseleave", "not-hovered", "nicht-berührt"],
+    ["click", "pressed", "gedrückt"],
+    ["mouseover", "hovered", "berührt"],
+    ["mouseleave", "not-hovered", "nicht-berührt"],
   ];
 
   public static readonly COLOR_PROPERTY_ALIASES = [

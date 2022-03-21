@@ -89,9 +89,9 @@ var AliasManager = /** @class */ (function () {
         ["<=", "kelinergleich", "smallerequal"],
     ];
     AliasManager.EVENT_ALIASES = [
-        ["onclick", "pressed", "gedrückt"],
-        ["onmouseover", "hovered", "berührt"],
-        ["onmouseleave", "not-hovered", "nicht-berührt"],
+        ["click", "pressed", "gedrückt"],
+        ["mouseover", "hovered", "berührt"],
+        ["mouseleave", "not-hovered", "nicht-berührt"],
     ];
     AliasManager.COLOR_PROPERTY_ALIASES = [
         ["style.color", "color", "farbe"],
