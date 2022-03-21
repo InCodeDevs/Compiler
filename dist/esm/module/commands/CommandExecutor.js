@@ -28,14 +28,14 @@ var CommandExecutor = /** @class */ (function () {
         else {
             ast = abstractSyntaxTree;
         }
-        var code = "";
+        var code = "\n";
         if (AliasManager.getCommandAliases(ast.command.toLowerCase()).length > 0) {
             if (this.COMMANDS[AliasManager.getCommandAliases(ast.command.toLowerCase())[0]]) {
                 code = this.COMMANDS[AliasManager.getCommandAliases(ast.command.toLowerCase())[0]].execute(ast.args);
             }
         }
         else {
-            if (ast.command !== " ") {
+            if (ast.command !== "") {
                 code += "// \"".concat(ast.command, " ").concat(ast.args.join(" "), "\" -> Der Befehl ").concat(ast.command, " konnte nicht gefunden werden.");
             }
         }
@@ -47,7 +47,7 @@ var CommandExecutor = /** @class */ (function () {
                 }
                 code += CommandExecutor.executeCommand(child);
             });
-            code += "}";
+            code += "}\n";
         }
         code += "\n";
         return code;

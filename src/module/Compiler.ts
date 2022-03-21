@@ -21,11 +21,10 @@ export class Compiler {
     let code = `/**
  * @generator InCode
  * @version 2.x
- */\nwindow.incode = {};\n(async () => {\n`;
+ */\nwindow.incode = {};\n(async () => {\n\n`;
 
     ast.forEach((node) => {
-      // code += "Code Comment" // TODO: implement
-      code += CommandExecutor.executeCommand(node) + "\n";
+      code += "\n" + CommandExecutor.executeCommand(node) + "\n";
     });
     code += "\n})();";
 

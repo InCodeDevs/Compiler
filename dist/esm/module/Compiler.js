@@ -13,10 +13,9 @@ var Compiler = /** @class */ (function () {
         if (typeof source === "string") {
             ast = AbstractSyntaxTreeGenerator.generate(source);
         }
-        var code = "/**\n * @generator InCode\n * @version 2.x\n */\nwindow.incode = {};\n(async () => {\n";
+        var code = "/**\n * @generator InCode\n * @version 2.x\n */\nwindow.incode = {};\n(async () => {\n\n";
         ast.forEach(function (node) {
-            // code += "Code Comment" // TODO: implement
-            code += CommandExecutor.executeCommand(node) + "\n";
+            code += "\n" + CommandExecutor.executeCommand(node) + "\n";
         });
         code += "\n})();";
         code = code.replace(/\n\n/g, "");

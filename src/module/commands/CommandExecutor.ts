@@ -51,7 +51,7 @@ export class CommandExecutor {
       ast = abstractSyntaxTree;
     }
 
-    let code = "";
+    let code = "\n";
 
     if (AliasManager.getCommandAliases(ast.command.toLowerCase()).length > 0) {
       if (
@@ -64,7 +64,7 @@ export class CommandExecutor {
         ].execute(ast.args);
       }
     } else {
-      if (ast.command !== " ") {
+      if (ast.command !== "") {
         code += `// "${ast.command} ${ast.args.join(" ")}" -> Der Befehl ${
           ast.command
         } konnte nicht gefunden werden.`;
@@ -79,7 +79,7 @@ export class CommandExecutor {
         }
         code += CommandExecutor.executeCommand(child);
       });
-      code += "}";
+      code += "}\n";
     }
 
     code += "\n";
