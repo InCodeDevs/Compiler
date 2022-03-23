@@ -1,6 +1,8 @@
 
 # @incodelang/compiler
 
+**Merged into [InCodeDevs/InCode](https://github.com/InCodeDevs/InCode)**
+
 This is the official Compiler of the InCode Programming Language.
 **Attention**: This is version 2 of the Compiler, if your are looking for the legacy documentation please visit https://github.com/InCodeDevs/Compiler/tree/v1.x/#readme
 
